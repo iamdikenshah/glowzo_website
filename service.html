@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Glowzo Car Wash Service — exterior wash, interior vacuum, tyre polish, window cleaning and more. Starting at ₹299. Book your doorstep car wash in Bopal, Ahmedabad." />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <title>Car Wash Service — Glowzo</title>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER / NAVBAR  (identical to index.html for consistency)
+     ============================================================ -->
+<header class="navbar" role="banner">
+  <div class="container navbar__inner">
+
+    <a href="index.html" class="navbar__logo" aria-label="Glowzo home">
+      <img src="assets/images/logo.jpeg" alt="Glowzo" class="logo-image" />
+    </a>
+
+    <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html#home"         class="navbar__link">Home</a>
+      <a href="index.html#services"     class="navbar__link">Services</a>
+      <a href="index.html#testimonials" class="navbar__link">Testimonials</a>
+      <a href="index.html#areas"        class="navbar__link">Areas We Serve</a>
+      <a href="index.html#contact"      class="navbar__link">Contact</a>
+    </nav>
+
+    <a href="index.html#contact" class="btn btn-primary navbar__cta" aria-label="Book a car wash">Book Now</a>
+
+    <button
+      class="navbar__hamburger"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="navbar__mobile" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html#home"         class="navbar__link">Home</a>
+    <a href="index.html#services"     class="navbar__link">Services</a>
+    <a href="index.html#testimonials" class="navbar__link">Testimonials</a>
+    <a href="index.html#areas"        class="navbar__link">Areas We Serve</a>
+    <a href="index.html#contact"      class="navbar__link">Contact</a>
+    <a href="index.html#contact"      class="btn btn-primary btn-sm">Book Now</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============================================================
+     BREADCRUMB
+     ============================================================ -->
+<nav class="breadcrumb" aria-label="Breadcrumb navigation">
+  <div class="container">
+    <ol class="breadcrumb__list">
+      <li class="breadcrumb__item">
+        <a href="index.html">Home</a>
+      </li>
+      <li class="breadcrumb__sep" aria-hidden="true">›</li>
+      <li class="breadcrumb__item">
+        <a href="index.html#services">Services</a>
+      </li>
+      <li class="breadcrumb__sep" aria-hidden="true">›</li>
+      <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">
+        Car Wash Service
+      </li>
+    </ol>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     SERVICE HERO / BANNER
+     ============================================================ -->
+<section class="svc-hero" aria-labelledby="svc-hero-title">
+  <div class="container">
+    <div class="svc-hero__inner">
+
+      <!-- Left: content -->
+      <div class="hero__content">
+        <span class="hero__badge">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Available Now in Bopal
+        </span>
+        <h1 class="svc-hero__title" id="svc-hero-title">
+          Car Wash<br />
+          <span class="hero__title-grad">Service</span>
+        </h1>
+        <p class="svc-hero__desc">
+          A full professional car wash delivered straight to your doorstep.
+          Our trained team uses eco-friendly, pH-neutral products to give your
+          car a spotless clean — inside and out — without a drop of wasted water.
+        </p>
+        <div class="hero__actions">
+          <a href="index.html#contact" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+            Book This Service
+          </a>
+          <a href="index.html#services" class="btn btn-ghost btn-lg back-link" style="border-radius:9999px;">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+            Back to Services
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: service illustration / banner -->
+      <div class="svc-hero__img-wrap hero__visual" role="img" aria-label="Car being washed professionally">
+        <!--
+          Replace this <svg> with a real banner photo:
+          <img src="assets/service-banner.jpg" alt="Car wash service" class="svc-hero__img" />
+        -->
+        <svg viewBox="0 0 480 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sb1" x1="0" y1="0" x2="480" y2="300" gradientUnits="userSpaceOnUse">
+              <stop offset="0"  stop-color="#061B34"/>
+              <stop offset="1"  stop-color="#0A4A68"/>
+            </linearGradient>
+            <linearGradient id="sc1" x1="70" y1="170" x2="410" y2="260" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#1E3A5F"/>
+              <stop offset="1" stop-color="#0B2545"/>
+            </linearGradient>
+          </defs>
+
+          <!-- BG -->
+          <rect width="480" height="300" fill="url(#sb1)"/>
+
+          <!-- Wash tunnel frame (left pillar) -->
+          <rect x="30"  y="50" width="12" height="220" rx="4" fill="rgba(0,245,212,.15)"/>
+          <rect x="30"  y="50" width="12" height="18"  rx="3" fill="#00F5D4" opacity=".5"/>
+          <!-- Wash tunnel frame (right pillar) -->
+          <rect x="438" y="50" width="12" height="220" rx="4" fill="rgba(0,245,212,.15)"/>
+          <rect x="438" y="50" width="12" height="18"  rx="3" fill="#00F5D4" opacity=".5"/>
+          <!-- Top bar of tunnel -->
+          <rect x="30"  y="50" width="420" height="10"  rx="4" fill="rgba(0,245,212,.12)"/>
+
+          <!-- Rotating brushes (decorative arcs) -->
+          <g opacity=".35">
+            <ellipse cx="120" cy="190" rx="20" ry="60" stroke="#00F5D4" stroke-width="2" fill="none"/>
+            <ellipse cx="120" cy="190" rx="12" ry="52" stroke="#67E8F9" stroke-width="1" fill="none"/>
+            <ellipse cx="360" cy="190" rx="20" ry="60" stroke="#00F5D4" stroke-width="2" fill="none"/>
+            <ellipse cx="360" cy="190" rx="12" ry="52" stroke="#67E8F9" stroke-width="1" fill="none"/>
+          </g>
+
+          <!-- Ground -->
+          <rect x="0" y="255" width="480" height="45" fill="rgba(0,0,0,.22)" rx="0"/>
+          <rect x="0" y="253" width="480" height="4"  fill="rgba(255,255,255,.04)"/>
+
+          <!-- Car shadow -->
+          <ellipse cx="240" cy="264" rx="165" ry="14" fill="rgba(0,0,0,.28)"/>
+
+          <!-- CAR BODY -->
+          <rect x="80"  y="200" width="320" height="60" rx="10" fill="url(#sc1)"/>
+          <path d="M142 200 L168 148 L312 148 L338 200Z" fill="#1A3F6E"/>
+          <path d="M150 200 L174 155 L308 155 L334 200Z" fill="#1E4878" opacity=".5"/>
+
+          <!-- Windows -->
+          <path d="M182 198 L198 157 L235 157 L235 198Z" fill="#67E8F9" opacity=".82"/>
+          <path d="M240 198 L240 157 L278 157 L294 198Z" fill="#67E8F9" opacity=".82"/>
+          <rect x="237" y="157" width="3" height="41" fill="#0B2545" opacity=".55"/>
+
+          <!-- Headlight -->
+          <rect x="372" y="212" width="28" height="12" rx="5" fill="#FCD34D" opacity=".92"/>
+          <rect x="376" y="215" width="18" height="7"  rx="3" fill="white"   opacity=".75"/>
+          <!-- Tail light -->
+          <rect x="82" y="208" width="7"  height="18" rx="3" fill="#F87171" opacity=".9"/>
+
+          <!-- Wheels -->
+          <circle cx="152" cy="260" r="28" fill="#0F172A"/>
+          <circle cx="152" cy="260" r="18" fill="#1E293B"/>
+          <circle cx="152" cy="260" r="9"  fill="#374151"/>
+          <circle cx="152" cy="260" r="4"  fill="#9CA3AF"/>
+
+          <circle cx="328" cy="260" r="28" fill="#0F172A"/>
+          <circle cx="328" cy="260" r="18" fill="#1E293B"/>
+          <circle cx="328" cy="260" r="9"  fill="#374151"/>
+          <circle cx="328" cy="260" r="4"  fill="#9CA3AF"/>
+
+          <!-- Water curtain / spray -->
+          <g opacity=".7">
+            <!-- Vertical rain from top bar -->
+            <line x1="180" y1="60" x2="175" y2="148" stroke="#00F5D4" stroke-width="1.5" stroke-dasharray="5 5" opacity=".5"/>
+            <line x1="200" y1="60" x2="198" y2="148" stroke="#67E8F9" stroke-width="1.5" stroke-dasharray="4 6" opacity=".4"/>
+            <line x1="220" y1="60" x2="220" y2="148" stroke="#00F5D4" stroke-width="1"   stroke-dasharray="6 4" opacity=".4"/>
+            <line x1="240" y1="60" x2="242" y2="148" stroke="#67E8F9" stroke-width="1.5" stroke-dasharray="5 5" opacity=".45"/>
+            <line x1="260" y1="60" x2="261" y2="148" stroke="#00F5D4" stroke-width="1"   stroke-dasharray="4 6" opacity=".38"/>
+            <line x1="280" y1="60" x2="279" y2="148" stroke="#67E8F9" stroke-width="1.5" stroke-dasharray="5 5" opacity=".4"/>
+            <line x1="300" y1="60" x2="298" y2="148" stroke="#00F5D4" stroke-width="1"   stroke-dasharray="6 4" opacity=".35"/>
+
+            <!-- Side spray from pillars -->
+            <path d="M42 130 Q80 128 118 140" stroke="#00F5D4" stroke-width="2" stroke-linecap="round" fill="none" opacity=".6"/>
+            <path d="M42 155 Q80 152 115 162" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".5"/>
+            <path d="M438 130 Q400 128 362 140" stroke="#00F5D4" stroke-width="2" stroke-linecap="round" fill="none" opacity=".6"/>
+            <path d="M438 155 Q400 152 365 162" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".5"/>
+
+            <!-- Droplets on car surface -->
+            <circle cx="200" cy="175" r="2.5" fill="#00F5D4" opacity=".7"/>
+            <circle cx="240" cy="165" r="2"   fill="#67E8F9" opacity=".65"/>
+            <circle cx="290" cy="180" r="3"   fill="#00F5D4" opacity=".6"/>
+            <circle cx="260" cy="170" r="1.8" fill="#67E8F9" opacity=".55"/>
+            <circle cx="210" cy="190" r="2.2" fill="#00F5D4" opacity=".5"/>
+            <circle cx="310" cy="185" r="2.5" fill="#67E8F9" opacity=".6"/>
+          </g>
+
+          <!-- Bubbles -->
+          <g opacity=".45">
+            <circle cx="65"  cy="110" r="14" stroke="#00F5D4" stroke-width="1.2" fill="rgba(0,245,212,.05)"/>
+            <circle cx="50"  cy="145" r="8"  stroke="#67E8F9" stroke-width="1"   fill="rgba(103,232,249,.04)"/>
+            <circle cx="416" cy="105" r="12" stroke="#00F5D4" stroke-width="1.2" fill="rgba(0,245,212,.05)"/>
+            <circle cx="428" cy="140" r="7"  stroke="#67E8F9" stroke-width="1"   fill="rgba(103,232,249,.04)"/>
+            <circle cx="240" cy="75"  r="8"  stroke="#00F5D4" stroke-width="1"   fill="rgba(0,245,212,.06)"/>
+          </g>
+
+          <!-- Sparkles -->
+          <g fill="#00F5D4" opacity=".7">
+            <path d="M55 220 L57 215 L59 220 L64 222 L59 224 L57 229 L55 224 L50 222Z"/>
+            <path d="M424 215 L426 210 L428 215 L433 217 L428 219 L426 224 L424 219 L419 217Z" opacity=".55"/>
+          </g>
+
+          <!-- Checkmark badge overlay (top-right) -->
+          <rect x="380" y="62" width="78" height="28" rx="14" fill="rgba(16,185,129,.22)" stroke="rgba(16,185,129,.4)" stroke-width="1"/>
+          <text x="419" y="80" text-anchor="middle" fill="#A7F3D0" font-size="10" font-family="Inter,sans-serif" font-weight="600">✓ Eco-Friendly</text>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICE DESCRIPTION
+     ============================================================ -->
+<section class="section" style="background:var(--color-surface);" aria-labelledby="svc-desc-title">
+  <div class="container" style="max-width:800px;">
+    <div class="reveal">
+      <span class="section-tag">About This Service</span>
+      <h2 class="section-title" id="svc-desc-title" style="text-align:left;max-width:none;">
+        Professional Car Wash at Your Doorstep
+      </h2>
+      <div style="color:var(--color-text-muted);line-height:1.8;font-size:.98rem;display:flex;flex-direction:column;gap:var(--sp-md);">
+        <p>
+          Our <strong style="color:var(--color-primary)">Car Wash Service</strong> brings a full-service, salon-quality car wash experience
+          directly to wherever your vehicle is parked — your home, apartment complex,
+          or office. No more waiting at a car wash centre or battling queues.
+        </p>
+        <p>
+          Our trained professionals arrive with all the equipment they need: water tanks,
+          eco-friendly cleaning agents, microfibre cloths, and high-powered vacuum cleaners.
+          We use pH-neutral, biodegradable shampoos that are safe for your car's paint,
+          rubber seals, and the environment.
+        </p>
+        <p>
+          Every wash follows a strict multi-step process to ensure nothing is missed —
+          from the wheel arches to the headliner. Whether you drive a hatchback, an SUV,
+          or a luxury sedan, our team is trained to handle all vehicle types with care.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHAT'S INCLUDED SECTION
+     ============================================================ -->
+<section class="includes section" id="includes" aria-labelledby="includes-title">
+  <div class="container">
+
+    <header class="section-header reveal">
+      <span class="section-tag">Checklist</span>
+      <h2 class="section-title" id="includes-title">What's Included</h2>
+      <p class="section-subtitle">Every booking includes this comprehensive list of services — no hidden extras.</p>
+    </header>
+
+    <div class="includes__grid">
+
+      <div class="include-item reveal">
+        <div class="include-item__check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <p class="include-item__label">Exterior Body Wash</p>
+          <p class="include-item__note">pH-neutral shampoo, 2-bucket method, microfibre dry</p>
+        </div>
+      </div>
+
+      <div class="include-item reveal reveal-d1">
+        <div class="include-item__check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <p class="include-item__label">Interior Vacuuming</p>
+          <p class="include-item__note">Seats, floor mats, boot, and all interior surfaces</p>
+        </div>
+      </div>
+
+      <div class="include-item reveal reveal-d2">
+        <div class="include-item__check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <p class="include-item__label">Tyre & Rim Cleaning</p>
+          <p class="include-item__note">Brake-dust removal, tyre shine application</p>
+        </div>
+      </div>
+
+      <div class="include-item reveal reveal-d3">
+        <div class="include-item__check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <p class="include-item__label">Dashboard Cleaning</p>
+          <p class="include-item__note">Dust wipe-down, dashboard polish, AC vent cleaning</p>
+        </div>
+      </div>
+
+      <div class="include-item reveal reveal-d4">
+        <div class="include-item__check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <p class="include-item__label">Window Cleaning</p>
+          <p class="include-item__note">Streak-free glass cleaner, inside &amp; outside</p>
+        </div>
+      </div>
+
+      <div class="include-item reveal reveal-d5">
+        <div class="include-item__check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <p class="include-item__label">Door Jamb Cleaning</p>
+          <p class="include-item__note">Often missed — we clean every door edge and seal</p>
+        </div>
+      </div>
+
+      <div class="include-item reveal">
+        <div class="include-item__check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <p class="include-item__label">Seat Wipe-Down</p>
+          <p class="include-item__note">Fabric &amp; leather-safe conditioner wipe (Premium plan)</p>
+        </div>
+      </div>
+
+      <div class="include-item reveal reveal-d1">
+        <div class="include-item__check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <p class="include-item__label">Air Freshener</p>
+          <p class="include-item__note">Subtle fragrance applied inside the cabin</p>
+        </div>
+      </div>
+
+    </div><!-- /includes__grid -->
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="pricing section" id="pricing" aria-labelledby="pricing-title">
+  <div class="container">
+
+    <header class="section-header reveal">
+      <span class="section-tag">Transparent Pricing</span>
+      <h2 class="section-title" id="pricing-title">Choose Your Plan</h2>
+      <p class="section-subtitle">Simple, upfront pricing — no hidden charges, no surprises.</p>
+    </header>
+
+    <div class="pricing__grid">
+
+      <!-- Basic plan -->
+      <div class="pricing-card reveal">
+        <p class="pricing-card__tier">Basic Wash</p>
+        <p class="pricing-card__price">₹299</p>
+        <p class="pricing-card__price-sub">Per wash · All vehicle types</p>
+        <ul class="pricing-card__features" aria-label="Basic plan features">
+          <li class="pricing-card__feat">Exterior body wash</li>
+          <li class="pricing-card__feat">Interior vacuuming</li>
+          <li class="pricing-card__feat">Window cleaning (outside)</li>
+          <li class="pricing-card__feat">Tyre cleaning</li>
+          <li class="pricing-card__feat">Air freshener</li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-outline" aria-label="Book the Basic Wash plan">Book Basic Wash</a>
+      </div>
+
+      <!-- Premium plan (featured) -->
+      <div class="pricing-card pricing-card--popular reveal reveal-d1">
+        <span class="pricing-card__badge" aria-label="Most popular plan">⭐ Most Popular</span>
+        <p class="pricing-card__tier">Premium Wash</p>
+        <p class="pricing-card__price">₹499</p>
+        <p class="pricing-card__price-sub">Per wash · All vehicle types</p>
+        <ul class="pricing-card__features" aria-label="Premium plan features">
+          <li class="pricing-card__feat">Everything in Basic</li>
+          <li class="pricing-card__feat">Dashboard deep clean</li>
+          <li class="pricing-card__feat">Door jamb cleaning</li>
+          <li class="pricing-card__feat">Tyre shine polish</li>
+          <li class="pricing-card__feat">Seat wipe &amp; conditioning</li>
+          <li class="pricing-card__feat">Window cleaning (inside + outside)</li>
+          <li class="pricing-card__feat">AC vent cleaning</li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-primary" aria-label="Book the Premium Wash plan">Book Premium Wash</a>
+      </div>
+
+    </div><!-- /pricing__grid -->
+
+    <!-- Note -->
+    <p class="reveal" style="text-align:center;margin-top:var(--sp-xl);font-size:.84rem;color:var(--color-text-muted);">
+      Prices are flat-rate for hatchbacks &amp; sedans. SUVs &amp; MUVs: add ₹100.
+      All services include a 30-day satisfaction guarantee.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BACK LINK + BOOK CTA
+     ============================================================ -->
+<section class="section" style="background:var(--color-surface);padding-top:var(--sp-2xl);padding-bottom:var(--sp-3xl);">
+  <div class="container" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--sp-xl);">
+
+    <div class="reveal">
+      <h2 class="section-title">Ready for a Sparkling Clean Car?</h2>
+      <p class="section-subtitle">Book your doorstep car wash in 60 seconds via our contact form or WhatsApp.</p>
+    </div>
+
+    <div class="hero__actions reveal reveal-d1">
+      <a href="index.html#contact" class="btn btn-primary btn-lg">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+        Book Now
+      </a>
+      <a href="index.html#services" class="back-link" aria-label="Go back to all services">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+        Back to Services
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<!-- ============================================================
+     FOOTER  (identical to index.html)
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <span class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="white"/></svg>
+          </span>
+          Sparkle<span class="logo-accent">Wash</span>
+        </div>
+        <p class="footer__tagline">Premium doorstep car wash service — clean cars, happy owners.</p>
+
+        <nav class="footer__social" aria-label="Social media links">
+          <a href="https://instagram.com/glowzo" class="footer__soc-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://facebook.com/sparklewash" class="footer__soc-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://twitter.com/sparklewash" class="footer__soc-link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://youtube.com/@sparklewash" class="footer__soc-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <div>
+        <h3 class="footer__col-title">Quick Links</h3>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="index.html#home"         class="footer__lnk">Home</a>
+          <a href="index.html#services"     class="footer__lnk">Services</a>
+          <a href="index.html#testimonials" class="footer__lnk">Testimonials</a>
+          <a href="index.html#areas"        class="footer__lnk">Areas We Serve</a>
+          <a href="index.html#contact"      class="footer__lnk">Contact</a>
+        </nav>
+      </div>
+
+      <div>
+        <h3 class="footer__col-title">Services</h3>
+        <nav class="footer__links" aria-label="Services links">
+          <a href="service.html"        class="footer__lnk">Car Wash</a>
+          <a href="index.html#services" class="footer__lnk">Interior Clean <small style="opacity:.5">(Soon)</small></a>
+          <a href="index.html#services" class="footer__lnk">Ceramic Coating <small style="opacity:.5">(Soon)</small></a>
+          <a href="index.html#contact"  class="footer__lnk">Book a Service</a>
+        </nav>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span class="footer-year">2025</span> SparkleWash. All rights reserved.</p>
+      <p>Made with ♥ in Ahmedabad, Gujarat</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     FLOATING WHATSAPP BUTTON
+     ============================================================ -->
+<div class="wa-float" aria-label="Chat with us on WhatsApp">
+  <a
+    href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20book%20a%20car%20wash%20service"
+    class="wa-float__btn"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Open WhatsApp to book a car wash service"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+    <span class="wa-float__tip">Chat on WhatsApp</span>
+  </a>
+</div>
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
