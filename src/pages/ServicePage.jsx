@@ -41,7 +41,7 @@ export default function ServicePage() {
                 car a spotless clean — inside and out — without a drop of wasted water.
               </p>
               <div className="hero__actions">
-                <Link to="/#contact" className="btn btn-primary btn-lg">
+                <Link to="/enquiry" className="btn btn-primary btn-lg">
                   <CalendarIcon />
                   Book This Service
                 </Link>
@@ -135,7 +135,7 @@ export default function ServicePage() {
                     <li key={f} className="pricing-card__feat">{f}</li>
                   ))}
                 </ul>
-                <Link to="/#contact" className={`btn ${plan.btnClass}`} aria-label={`Book the ${plan.tier} plan`}>
+                <Link to="/enquiry" className={`btn ${plan.btnClass}`} aria-label={`Book the ${plan.tier} plan`}>
                   {plan.cta}
                 </Link>
               </div>
@@ -158,7 +158,7 @@ export default function ServicePage() {
             </p>
           </div>
           <div className="hero__actions reveal reveal-d1" style={{ marginBottom: 0 }}>
-            <Link to="/#contact" className="btn btn-primary btn-lg">
+            <Link to="/enquiry" className="btn btn-primary btn-lg">
               <CalendarIcon />
               Book Now
             </Link>

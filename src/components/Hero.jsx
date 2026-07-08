@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import HeroIllustration from './HeroIllustration';
 import { CalendarIcon, PlayIcon } from './icons';
 
-export default function Hero({ onBook, onLearnMore }) {
+export default function Hero({ onLearnMore }) {
   return (
     <section className="hero" id="home" aria-label="Hero — Glowzo car wash service">
       <div className="container hero__inner">
@@ -28,10 +28,10 @@ export default function Hero({ onBook, onLearnMore }) {
           </p>
 
           <div className="hero__actions">
-            <a href="/#contact" onClick={onBook} className="btn btn-primary btn-lg">
+            <Link to="/enquiry" className="btn btn-primary btn-lg">
               <CalendarIcon />
               Book Now
-            </a>
+            </Link>
             <a href="/#services" onClick={onLearnMore} className="btn btn-ghost btn-lg">
               Learn More
             </a>

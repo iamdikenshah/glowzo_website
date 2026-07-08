@@ -50,6 +50,7 @@ export default function Footer() {
               <Link to="/#testimonials" className="footer__lnk">Testimonials</Link>
               <Link to="/#areas" className="footer__lnk">Areas We Serve</Link>
               <Link to="/#contact" className="footer__lnk">Contact</Link>
+              <Link to="/enquiry" className="footer__lnk">Register / Book</Link>
               <Link to="/service" className="footer__lnk">Car Wash Details</Link>
             </nav>
           </div>
@@ -64,7 +65,7 @@ export default function Footer() {
               <Link to="/#services" className="footer__lnk">
                 Ceramic Coating <small style={{ opacity: 0.5 }}>(Soon)</small>
               </Link>
-              <Link to="/#contact" className="footer__lnk">Book a Service</Link>
+              <Link to="/enquiry" className="footer__lnk">Book a Service</Link>
             </nav>
           </div>
         </div>

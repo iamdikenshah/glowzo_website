@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { NAV_LINKS, SITE } from '../data/site';
+import { NAV_LINKS } from '../data/site';
 
 const NAVBAR_H = 70;
 
@@ -76,14 +76,9 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a
-          href="/#contact"
-          onClick={goTo('#contact')}
-          className="btn btn-primary navbar__cta"
-          aria-label="Book a car wash"
-        >
+        <Link to="/enquiry" className="btn btn-primary navbar__cta" aria-label="Book a car wash">
           Book Now
-        </a>
+        </Link>
 
         <button
           className={`navbar__hamburger${open ? ' open' : ''}`}
@@ -108,9 +103,9 @@ export default function Navbar() {
             {l.label}
           </a>
         ))}
-        <a href={SITE.whatsapp} onClick={goTo('#contact')} className="btn btn-primary btn-sm">
+        <Link to="/enquiry" className="btn btn-primary btn-sm">
           Book Now
-        </a>
+        </Link>
       </nav>
     </header>
   );

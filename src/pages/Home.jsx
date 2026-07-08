@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <>
-      <Hero onBook={scrollTo('contact')} onLearnMore={scrollTo('services')} />
+      <Hero onLearnMore={scrollTo('services')} />
       <Services />
       <Testimonials />
       <Areas />

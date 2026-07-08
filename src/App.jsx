@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import Home from './pages/Home';
 import ServicePage from './pages/ServicePage';
+import EnquiryPage from './pages/EnquiryPage';
 
 /** Scrolls to a #hash target on navigation, or to top when there is none. */
 function ScrollManager() {
@@ -36,6 +37,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/service" element={<ServicePage />} />
+          <Route path="/enquiry" element={<EnquiryPage />} />
         </Routes>
       </main>
       <Footer />
