@@ -19,6 +19,7 @@ export const ENTRY = {
   mobile: 'entry.1478072052',
   society: 'entry.575137707',
   flat: 'entry.1182812709',
+  serviceStartDate: 'entry.1819831795', // "Service start date" (Date question)
   vehicleCount: 'entry.1464088449', // "Number Of Vehicle" (1/2/3)
   vehicleType: 'entry.810503756',   // "Vehicle Type" (checkboxes)
   regNumber: 'entry.374886168',     // single text
@@ -36,8 +37,7 @@ export const FIELDS = {
   mobile:   { entry: ENTRY.mobile,   label: 'Mobile Number',        type: 'tel',      required: true,  placeholder: '10-digit mobile number', autoComplete: 'tel', maxLength: 10 },
   society:  { entry: ENTRY.society,  label: 'Society Name',         type: 'text',     required: true,  placeholder: 'e.g. Shivalik Residency' },
   flat:     { entry: ENTRY.flat,     label: 'Flat / House Number',  type: 'text',     required: true,  placeholder: 'e.g. B-402' },
-  // No Google Form field for this yet — captured in Additional Notes (see submit).
-  serviceStartDate: { label: 'Service Start Date', type: 'date', required: true, noEntry: true },
+  serviceStartDate: { entry: ENTRY.serviceStartDate, label: 'Service Start Date', type: 'date', required: true },
   parking:  { entry: ENTRY.parking,  label: 'Parking Location',     type: 'radio',    required: false, options: ['Basement', 'Ground Floor', 'Open Parking', 'Other'], hasOther: true },
   notes:    { entry: ENTRY.notes,    label: 'Additional Notes',     type: 'textarea', required: false, placeholder: 'Any special requests, preferred timing, gate/parking instructions…' },
 };
@@ -72,6 +72,14 @@ export async function submitEnquiry(values) {
   body.append(ENTRY.society, values.society || '');
   body.append(ENTRY.flat, values.flat || '');
 
+  // Service start date → Google "Date" question (year/month/day parts).
+  if (values.serviceStartDate) {
+    const [y, m, d] = values.serviceStartDate.split('-');
+    body.append(`${ENTRY.serviceStartDate}_year`, y);
+    body.append(`${ENTRY.serviceStartDate}_month`, String(Number(m)));
+    body.append(`${ENTRY.serviceStartDate}_day`, String(Number(d)));
+  }
+
   // Parking (with "Other" free-text handling).
   if (values.parking === 'Other') {
     body.append(ENTRY.parking, OTHER_VALUE);
@@ -89,15 +97,11 @@ export async function submitEnquiry(values) {
   body.append(ENTRY.regNumber, vehicles.map((v) => v.reg).filter(Boolean).join(', '));
   body.append(ENTRY.carName, vehicles.map((v) => v.name).filter(Boolean).join(', '));
 
-  // Service start date + per-vehicle breakdown + user notes → Additional Notes.
+  // Per-vehicle breakdown + user notes → Additional Notes.
   const breakdown = vehicles
     .map((v, i) => `${i + 1}) ${v.type || '—'} · ${v.reg || '—'} · ${v.name || '—'}`)
     .join('\n');
-  const notes = [
-    values.serviceStartDate && `Service start date: ${values.serviceStartDate}`,
-    breakdown && `Vehicles:\n${breakdown}`,
-    values.notes,
-  ]
+  const notes = [breakdown && `Vehicles:\n${breakdown}`, values.notes]
     .filter(Boolean)
     .join('\n\n');
   body.append(ENTRY.notes, notes);
