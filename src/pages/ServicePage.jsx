@@ -3,9 +3,11 @@ import ServiceBanner from '../components/ServiceBanner';
 import { CalendarIcon, BackIcon, CheckIcon } from '../components/icons';
 import { INCLUDES, PLANS } from '../data/content';
 import useScrollReveal from '../hooks/useScrollReveal';
+import { useEnquiryModal } from '../context/EnquiryModalContext';
 
 export default function ServicePage() {
   useScrollReveal([]);
+  const { openEnquiry } = useEnquiryModal();
 
   return (
     <>
@@ -41,10 +43,10 @@ export default function ServicePage() {
                 car a spotless clean — inside and out — without a drop of wasted water.
               </p>
               <div className="hero__actions">
-                <Link to="/enquiry" className="btn btn-primary btn-lg">
+                <button type="button" onClick={openEnquiry} className="btn btn-primary btn-lg">
                   <CalendarIcon />
                   Book This Service
-                </Link>
+                </button>
                 <Link to="/#services" className="btn btn-ghost btn-lg back-link" style={{ borderRadius: 9999 }}>
                   <BackIcon />
                   Back to Services
@@ -135,9 +137,9 @@ export default function ServicePage() {
                     <li key={f} className="pricing-card__feat">{f}</li>
                   ))}
                 </ul>
-                <Link to="/enquiry" className={`btn ${plan.btnClass}`} aria-label={`Book the ${plan.tier} plan`}>
+                <button type="button" onClick={openEnquiry} className={`btn ${plan.btnClass}`} aria-label={`Book the ${plan.tier} plan`}>
                   {plan.cta}
-                </Link>
+                </button>
               </div>
             ))}
           </div>
@@ -158,10 +160,10 @@ export default function ServicePage() {
             </p>
           </div>
           <div className="hero__actions reveal reveal-d1" style={{ marginBottom: 0 }}>
-            <Link to="/enquiry" className="btn btn-primary btn-lg">
+            <button type="button" onClick={openEnquiry} className="btn btn-primary btn-lg">
               <CalendarIcon />
               Book Now
-            </Link>
+            </button>
             <Link to="/#services" className="back-link" aria-label="Go back to all services">
               <BackIcon />
               Back to Services

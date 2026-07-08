@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { NAV_LINKS } from '../data/site';
+import { useEnquiryModal } from '../context/EnquiryModalContext';
 
 const NAVBAR_H = 70;
 
@@ -10,6 +11,7 @@ export default function Navbar() {
   const [activeId, setActiveId] = useState('home');
   const location = useLocation();
   const navigate = useNavigate();
+  const { openEnquiry } = useEnquiryModal();
   const onHome = location.pathname === '/';
 
   /* Sticky shadow + active-section highlight (home only) */
@@ -76,9 +78,9 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <Link to="/enquiry" className="btn btn-primary navbar__cta" aria-label="Book a car wash">
+        <button type="button" onClick={openEnquiry} className="btn btn-primary navbar__cta" aria-label="Book a car wash">
           Book Now
-        </Link>
+        </button>
 
         <button
           className={`navbar__hamburger${open ? ' open' : ''}`}
@@ -103,9 +105,9 @@ export default function Navbar() {
             {l.label}
           </a>
         ))}
-        <Link to="/enquiry" className="btn btn-primary btn-sm">
+        <button type="button" onClick={() => { setOpen(false); openEnquiry(); }} className="btn btn-primary btn-sm">
           Book Now
-        </Link>
+        </button>
       </nav>
     </header>
   );

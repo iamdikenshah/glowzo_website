@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FIELDS, FIELD_ORDER, submitEnquiry } from '../data/enquiry';
 import { SITE } from '../data/site';
 
@@ -27,10 +27,19 @@ function validateField(key, values) {
   return '';
 }
 
-export default function EnquiryForm({ compact = false }) {
+export default function EnquiryForm({ compact = false, onClose }) {
   const [values, setValues] = useState(INITIAL);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+
+  // In modal mode, auto-close a moment after a successful submit so the
+  // visitor can carry on browsing the site.
+  useEffect(() => {
+    if (status === 'sent' && onClose) {
+      const t = setTimeout(onClose, 2600);
+      return () => clearTimeout(t);
+    }
+  }, [status, onClose]);
 
   const setField = (key, value) => {
     setValues((v) => ({ ...v, [key]: value }));
@@ -81,10 +90,16 @@ export default function EnquiryForm({ compact = false }) {
           number shortly to confirm your first doorstep wash.
         </p>
         <div className="enquiry-success__actions">
-          <button type="button" className="btn btn-outline btn-sm" onClick={() => setStatus('idle')}>
-            Register Another Vehicle
-          </button>
-          <a href={SITE.whatsapp} className="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
+          {onClose ? (
+            <button type="button" className="btn btn-primary btn-sm" onClick={onClose}>
+              Continue to Website
+            </button>
+          ) : (
+            <button type="button" className="btn btn-outline btn-sm" onClick={() => setStatus('idle')}>
+              Register Another Vehicle
+            </button>
+          )}
+          <a href={SITE.whatsapp} className="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
             Message us on WhatsApp
           </a>
         </div>

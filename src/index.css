@@ -821,47 +821,63 @@ textarea.form-input { resize: vertical; min-height: 100px; }
 }
 
 /* ============================================================
-   ENQUIRY PAGE
+   ENQUIRY POPUP / MODAL
    ============================================================ */
-.enquiry-hero {
-  background:
-    radial-gradient(800px 400px at 90% -10%, rgba(34,211,238,.14), transparent 60%),
-    linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%);
-  padding: var(--sp-3xl) 0 var(--sp-4xl);
-  position: relative; overflow: hidden;
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(15,23,42,.55);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 5vh 1rem 2rem;
+  overflow-y: auto;
+  animation: overlayFade .2s ease;
 }
-.enquiry-hero::before {
-  content: ''; position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(14,165,233,.05) 1px, transparent 1px);
-  background-size: 28px 28px; pointer-events: none;
-}
-.enquiry-hero__inner {
-  position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1fr; gap: var(--sp-2xl);
-  align-items: start;
-}
-.enquiry-perks { display: flex; flex-direction: column; gap: var(--sp-md); }
-.enquiry-perk { display: flex; align-items: center; gap: .7rem; font-size: .92rem; color: var(--color-text-muted); }
-.enquiry-perk__check {
-  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-  display: flex; align-items: center; justify-content: center;
-}
-.enquiry-perk__check svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes overlayFade { from { opacity: 0; } to { opacity: 1; } }
 
-.enquiry-card {
+.modal {
+  position: relative;
+  width: 100%; max-width: 560px;
+  margin: auto;
   background: var(--color-surface);
-  border: 1.5px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--r-xl);
-  padding: var(--sp-xl);
   box-shadow: var(--shadow-xl);
+  animation: modalIn .3s cubic-bezier(.16,1,.3,1);
 }
-.enquiry-card__title { font-size: 1.25rem; font-weight: var(--fw-bold); color: var(--color-text); margin-bottom: .25rem; }
-.enquiry-card__sub { font-size: .82rem; color: var(--color-text-light); margin-bottom: var(--sp-lg); }
+@keyframes modalIn { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: none; } }
 
-@media (min-width: 900px) {
-  .enquiry-hero__inner { grid-template-columns: 1fr 1.1fr; gap: var(--sp-3xl); }
-  .enquiry-hero__intro { position: sticky; top: calc(var(--navbar-h) + var(--sp-xl)); }
+.modal__close {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; line-height: 1;
+  color: var(--color-text-muted);
+  background: var(--color-surface-2);
+  transition: background var(--t-fast), color var(--t-fast), transform var(--t-fast);
+}
+.modal__close:hover { background: var(--color-surface-alt); color: var(--color-text); transform: rotate(90deg); }
+
+.modal__head {
+  padding: var(--sp-xl) var(--sp-xl) 0;
+}
+.modal__badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: rgba(14,165,233,.10);
+  border: 1px solid rgba(14,165,233,.25);
+  color: var(--color-primary-dark);
+  font-size: .68rem; font-weight: var(--fw-semi);
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: .3rem .75rem; border-radius: var(--r-full);
+  margin-bottom: var(--sp-md);
+}
+.modal__title { font-size: 1.5rem; font-weight: var(--fw-xbold); color: var(--color-text); letter-spacing: -.02em; }
+.modal__sub { font-size: .9rem; color: var(--color-text-muted); margin-top: .35rem; line-height: 1.6; }
+.modal__body { padding: var(--sp-lg) var(--sp-xl) var(--sp-xl); }
+
+/* Footer links rendered as buttons */
+.footer__lnk--btn {
+  text-align: left; padding: 0; font: inherit;
+  color: rgba(255,255,255,.58); cursor: pointer;
 }
 
 /* ---- Focus / A11y ---- */

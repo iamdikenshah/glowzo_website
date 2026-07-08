@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
 import HeroIllustration from './HeroIllustration';
 import { CalendarIcon, PlayIcon } from './icons';
+import { useEnquiryModal } from '../context/EnquiryModalContext';
 
 export default function Hero({ onLearnMore }) {
+  const { openEnquiry } = useEnquiryModal();
   return (
     <section className="hero" id="home" aria-label="Hero — Glowzo car wash service">
       <div className="container hero__inner">
@@ -28,10 +29,10 @@ export default function Hero({ onLearnMore }) {
           </p>
 
           <div className="hero__actions">
-            <Link to="/enquiry" className="btn btn-primary btn-lg">
+            <button type="button" onClick={openEnquiry} className="btn btn-primary btn-lg">
               <CalendarIcon />
               Book Now
-            </Link>
+            </button>
             <a href="/#services" onClick={onLearnMore} className="btn btn-ghost btn-lg">
               Learn More
             </a>

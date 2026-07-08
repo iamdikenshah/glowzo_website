@@ -32,12 +32,23 @@ src/
 
 Original static HTML/CSS/JS is preserved under [`legacy/`](legacy/).
 
-## Enquiry form → Google Sheet
+## Enquiry popup → Google Sheet
 
-The `/enquiry` page (and the home "Book Your Wash" section) mirror the
-**Glowzo Car Registration** Google Form and POST directly into the same
-responses sheet — no backend required. Field IDs live in
-[`src/data/enquiry.js`](src/data/enquiry.js).
+The car-registration form is a **popup/modal** ([`EnquiryModal`](src/components/EnquiryModal.jsx)),
+opened from any "Book Now" CTA, controlled via
+[`EnquiryModalContext`](src/context/EnquiryModalContext.jsx). It also:
+
+- opens **once per browser session** on first landing, and
+- opens when someone visits **`glowzo.co.in/enquiry`** directly (the URL
+  renders the home page with the popup open — still shareable).
+
+On a successful submit it shows a confirmation and auto-closes so the
+visitor can keep browsing. The form mirrors the **Glowzo Car Registration**
+Google Form and POSTs directly into the same responses sheet — no backend
+required. Field IDs live in [`src/data/enquiry.js`](src/data/enquiry.js).
+
+To change the auto-open behaviour, edit `AUTO_OPEN_DELAY` / the
+`sessionStorage` gate in [`src/App.jsx`](src/App.jsx).
 
 To point it at a different Google Form, replace `FORM_ID` and the `entry.*`
 ids there (open the form → *View source* → search `entry.`).

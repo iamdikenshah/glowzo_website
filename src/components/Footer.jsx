@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SITE } from '../data/site';
+import { useEnquiryModal } from '../context/EnquiryModalContext';
 import {
   InstagramIcon,
   FacebookIcon,
@@ -9,6 +10,7 @@ import {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { openEnquiry } = useEnquiryModal();
   return (
     <footer className="footer" role="contentinfo">
       <div className="container">
@@ -50,7 +52,7 @@ export default function Footer() {
               <Link to="/#testimonials" className="footer__lnk">Testimonials</Link>
               <Link to="/#areas" className="footer__lnk">Areas We Serve</Link>
               <Link to="/#contact" className="footer__lnk">Contact</Link>
-              <Link to="/enquiry" className="footer__lnk">Register / Book</Link>
+              <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Register / Book</button>
               <Link to="/service" className="footer__lnk">Car Wash Details</Link>
             </nav>
           </div>
@@ -65,7 +67,7 @@ export default function Footer() {
               <Link to="/#services" className="footer__lnk">
                 Ceramic Coating <small style={{ opacity: 0.5 }}>(Soon)</small>
               </Link>
-              <Link to="/enquiry" className="footer__lnk">Book a Service</Link>
+              <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Book a Service</button>
             </nav>
           </div>
         </div>

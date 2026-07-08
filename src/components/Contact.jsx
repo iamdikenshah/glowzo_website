@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { SITE } from '../data/site';
 import { PhoneIcon, MailIcon, MapPinIcon } from './icons';
+import { useEnquiryModal } from '../context/EnquiryModalContext';
 
 const RULES = {
   name: { required: true, minLen: 2, label: 'Full name' },
@@ -24,6 +24,7 @@ function validate(field, value) {
 }
 
 export default function Contact() {
+  const { openEnquiry } = useEnquiryModal();
   const [values, setValues] = useState(EMPTY);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
@@ -71,9 +72,13 @@ export default function Contact() {
           <h2 className="section-title" id="contact-title">Contact Us</h2>
           <p className="section-subtitle">
             Have a question or feedback? Send us a message. Ready to book?{' '}
-            <Link to="/enquiry" style={{ color: 'var(--color-primary-dark)', fontWeight: 600 }}>
+            <button
+              type="button"
+              onClick={openEnquiry}
+              style={{ color: 'var(--color-primary-dark)', fontWeight: 600, font: 'inherit' }}
+            >
               Register your car →
-            </Link>
+            </button>
           </p>
         </header>
 
