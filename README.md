@@ -20,10 +20,9 @@ src/
   App.jsx             Routes + scroll manager
   index.css           Design tokens + all component styles (light theme)
   pages/
-    Home.jsx          Hero · Services · Testimonials · Areas · Contact
-    ServicePage.jsx   /service  — car-wash detail, includes, pricing
-    EnquiryPage.jsx   /enquiry  — standalone car-registration form
-  components/         Navbar, Footer, Hero, Contact, EnquiryForm, …
+    Home.jsx          Hero · Stats · Services · Pricing · Testimonials · About
+  components/         Navbar, Footer, Hero, Stats, Services, Pricing,
+                      About, Testimonials, EnquiryModal, EnquiryForm, …
   data/
     site.js           Phone, email, address, social links (edit here)
     content.js        Testimonials, service areas, includes, pricing

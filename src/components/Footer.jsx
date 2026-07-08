@@ -25,7 +25,7 @@ export default function Footer() {
               Glow<span className="logo-accent">zo</span>
             </div>
             <p className="footer__tagline">
-              Premium doorstep car wash service — clean cars, happy owners.
+              Daily doorstep car cleaning — clean cars, happy owners.
             </p>
 
             <nav className="footer__social" aria-label="Social media links">
@@ -49,24 +49,19 @@ export default function Footer() {
             <nav className="footer__links" aria-label="Footer navigation">
               <Link to="/#home" className="footer__lnk">Home</Link>
               <Link to="/#services" className="footer__lnk">Services</Link>
+              <Link to="/#pricing" className="footer__lnk">Pricing</Link>
               <Link to="/#testimonials" className="footer__lnk">Testimonials</Link>
-              <Link to="/#areas" className="footer__lnk">Areas We Serve</Link>
-              <Link to="/#contact" className="footer__lnk">Contact</Link>
+              <Link to="/#about" className="footer__lnk">About Us</Link>
               <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Register / Book</button>
-              <Link to="/service" className="footer__lnk">Car Wash Details</Link>
             </nav>
           </div>
 
           <div>
             <h3 className="footer__col-title">Services</h3>
             <nav className="footer__links" aria-label="Services links">
-              <Link to="/service" className="footer__lnk">Car Wash</Link>
-              <Link to="/#services" className="footer__lnk">
-                Interior Clean <small style={{ opacity: 0.5 }}>(Soon)</small>
-              </Link>
-              <Link to="/#services" className="footer__lnk">
-                Ceramic Coating <small style={{ opacity: 0.5 }}>(Soon)</small>
-              </Link>
+              <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Daily Car Cleaning</button>
+              <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Interior Foam Cleaning</button>
+              <Link to="/#pricing" className="footer__lnk">Monthly Plans</Link>
               <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Book a Service</button>
             </nav>
           </div>

@@ -1,3 +1,52 @@
+export const STATS = [
+  { num: '500+', label: 'Cars Cleaned' },
+  { num: '300+', label: 'Monthly Subscribers' },
+  { num: '4.9★', label: 'Average Rating' },
+  { num: '7 Days', label: 'A Week Service' },
+];
+
+export const SERVICES = [
+  {
+    key: 'daily',
+    title: 'Daily Car Cleaning',
+    desc: 'Fresh, spotless car every single day at your doorstep. Exterior body wipe-down, dusting, glass cleaning and tyre care — done before you leave for the day.',
+    points: ['Daily exterior cleaning', 'Glass & mirror wipe', 'Tyre & rim dusting', 'Eco-friendly products'],
+    icon: 'car',
+  },
+  {
+    key: 'foam',
+    title: 'Interior Foam Cleaning',
+    desc: 'Deep foam treatment for your cabin — seats, dashboard, mats and every corner shampooed and sanitised for a fresh, like-new interior.',
+    points: ['Seat & fabric shampoo', 'Dashboard foam polish', 'Mat & carpet cleaning', 'Odour treatment'],
+    icon: 'foam',
+  },
+];
+
+// Monthly subscription pricing by vehicle category.
+export const PRICING_TIERS = [
+  {
+    tier: 'Standard',
+    types: 'Hatchback / Sedan / Compact SUV',
+    price: '₹599',
+    period: '/ month',
+    popular: false,
+  },
+  {
+    tier: 'Premium SUV',
+    types: 'Fortuner, Scorpio N, XUV700, Safari, Harrier, MG Hector, Innova Hycross, Hilux, Thar',
+    price: '₹799',
+    period: '/ month',
+    popular: true,
+  },
+  {
+    tier: 'Luxury',
+    types: 'BMW, Mercedes-Benz, Audi, Volvo, Jaguar, Land Rover, Lexus, Porsche',
+    price: '₹999',
+    period: '/ month',
+    popular: false,
+  },
+];
+
 export const TESTIMONIALS = [
   {
     initial: 'R',
@@ -5,7 +54,7 @@ export const TESTIMONIALS = [
     name: 'Rahul Mehta',
     place: 'Bopal, Ahmedabad',
     stars: 5,
-    text: '"Absolutely brilliant service! They showed up on time, were super professional, and my car looks brand new. Worth every rupee!"',
+    text: '"Absolutely brilliant service! They show up every morning, super professional, and my car looks brand new daily. Worth every rupee!"',
   },
   {
     initial: 'P',
@@ -13,7 +62,7 @@ export const TESTIMONIALS = [
     name: 'Priya Shah',
     place: 'Bopal, Ahmedabad',
     stars: 5,
-    text: '"So convenient! I booked via WhatsApp and they were at my apartment in under 30 minutes. The interior clean was spotless. Highly recommend!"',
+    text: '"So convenient! The monthly plan means I never think about washing my car again. The interior foam clean was spotless. Highly recommend!"',
   },
   {
     initial: 'A',
@@ -21,7 +70,7 @@ export const TESTIMONIALS = [
     name: 'Ankit Patel',
     place: 'Bopal, Ahmedabad',
     stars: 5,
-    text: '"Best doorstep car wash in Bopal! They use quality products and the tyre polish makes my car look amazing. Booked the premium plan — totally worth it."',
+    text: '"Best doorstep car cleaning in Bopal! Quality products and the daily cleaning keeps my car showroom-fresh. The subscription is totally worth it."',
   },
   {
     initial: 'N',
@@ -37,7 +86,7 @@ export const TESTIMONIALS = [
     name: 'Karan Desai',
     place: 'Bopal, Ahmedabad',
     stars: 5,
-    text: '"I\'ve used many car wash services but Glowzo is in a different league. The attention to detail — windows, dashboard, tyres — everything was perfect."',
+    text: '"I\'ve tried many services but Glowzo is in a different league. The attention to detail — windows, dashboard, tyres — everything is perfect."',
   },
   {
     initial: 'S',
@@ -45,61 +94,6 @@ export const TESTIMONIALS = [
     name: 'Simran Kapoor',
     place: 'Bopal, Ahmedabad',
     stars: 5,
-    text: '"Such a time-saver! Working from home means I never have time to visit a car wash. Glowzo comes to me and does a fantastic job every single time."',
-  },
-];
-
-export const AREAS = [
-  { name: 'Bopal, Ahmedabad', active: true },
-  { name: 'Satellite', active: false },
-  { name: 'Vastrapur', active: false },
-  { name: 'SG Highway', active: false },
-  { name: 'South Bopal', active: false },
-  { name: 'Ghuma', active: false },
-];
-
-export const INCLUDES = [
-  { label: 'Exterior Body Wash', note: 'pH-neutral shampoo, 2-bucket method, microfibre dry' },
-  { label: 'Interior Vacuuming', note: 'Seats, floor mats, boot, and all interior surfaces' },
-  { label: 'Tyre & Rim Cleaning', note: 'Brake-dust removal, tyre shine application' },
-  { label: 'Dashboard Cleaning', note: 'Dust wipe-down, dashboard polish, AC vent cleaning' },
-  { label: 'Window Cleaning', note: 'Streak-free glass cleaner, inside & outside' },
-  { label: 'Door Jamb Cleaning', note: 'Often missed — we clean every door edge and seal' },
-  { label: 'Seat Wipe-Down', note: 'Fabric & leather-safe conditioner wipe (Premium plan)' },
-  { label: 'Air Freshener', note: 'Subtle fragrance applied inside the cabin' },
-];
-
-export const PLANS = [
-  {
-    tier: 'Basic Wash',
-    price: '₹299',
-    sub: 'Per wash · All vehicle types',
-    features: [
-      'Exterior body wash',
-      'Interior vacuuming',
-      'Window cleaning (outside)',
-      'Tyre cleaning',
-      'Air freshener',
-    ],
-    popular: false,
-    cta: 'Book Basic Wash',
-    btnClass: 'btn-outline',
-  },
-  {
-    tier: 'Premium Wash',
-    price: '₹499',
-    sub: 'Per wash · All vehicle types',
-    features: [
-      'Everything in Basic',
-      'Dashboard deep clean',
-      'Door jamb cleaning',
-      'Tyre shine polish',
-      'Seat wipe & conditioning',
-      'Window cleaning (inside + outside)',
-      'AC vent cleaning',
-    ],
-    popular: true,
-    cta: 'Book Premium Wash',
-    btnClass: 'btn-primary',
+    text: '"Such a time-saver! Working from home means I never have time. Glowzo comes to me and does a fantastic job every single day."',
   },
 ];

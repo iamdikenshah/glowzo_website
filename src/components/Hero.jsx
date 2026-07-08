@@ -1,11 +1,12 @@
 import HeroIllustration from './HeroIllustration';
-import { CalendarIcon, PlayIcon } from './icons';
+import { CalendarIcon } from './icons';
 import { useEnquiryModal } from '../context/EnquiryModalContext';
 
 export default function Hero({ onLearnMore }) {
   const { openEnquiry } = useEnquiryModal();
+
   return (
-    <section className="hero" id="home" aria-label="Hero — Glowzo car wash service">
+    <section className="hero" id="home" aria-label="Hero — Glowzo car cleaning service">
       <div className="container hero__inner">
         <div className="hero__content">
           <span className="hero__badge">
@@ -14,7 +15,7 @@ export default function Hero({ onLearnMore }) {
           </span>
 
           <h1 className="hero__title">
-            Premium Car Wash,
+            Daily Car Cleaning,
             <br />
             <span className="hero__title-grad">
               Right at Your
@@ -24,8 +25,9 @@ export default function Hero({ onLearnMore }) {
           </h1>
 
           <p className="hero__subtitle">
-            Professional, eco-friendly car wash delivered to your home or office.
-            Spotless results — no queues, no hassle, just a sparkling clean car.
+            A spotless car every single day — professional, eco-friendly doorstep
+            cleaning on a simple monthly plan. No queues, no hassle, just a car
+            that always looks its best.
           </p>
 
           <div className="hero__actions">
@@ -33,40 +35,21 @@ export default function Hero({ onLearnMore }) {
               <CalendarIcon />
               Book Now
             </button>
-            <a href="/#services" onClick={onLearnMore} className="btn btn-ghost btn-lg">
-              Learn More
+            <a href="/#pricing" onClick={onLearnMore} className="btn btn-ghost btn-lg">
+              View Plans
             </a>
           </div>
 
-          <div className="hero__stats">
-            <div className="hero__stat">
-              <span className="hero__stat-num">500+</span>
-              <span className="hero__stat-label">Cars Washed</span>
-            </div>
-            <div className="hero__stat">
-              <span className="hero__stat-num">4.9★</span>
-              <span className="hero__stat-label">Avg. Rating</span>
-            </div>
-            <div className="hero__stat">
-              <span className="hero__stat-num">60 min</span>
-              <span className="hero__stat-label">Avg. Time</span>
-            </div>
-          </div>
+          <ul className="hero__highlights">
+            <li>✓ Eco-friendly products</li>
+            <li>✓ Trained professionals</li>
+            <li>✓ Cancel anytime</li>
+          </ul>
         </div>
 
         <div className="hero__visual">
           <div className="hero__illustration">
             <HeroIllustration />
-          </div>
-
-          <div className="hero__float-card" aria-hidden="true">
-            <div className="hero__float-icon">
-              <PlayIcon />
-            </div>
-            <div>
-              <span className="hero__float-label">Next Slot</span>
-              <strong className="hero__float-value">Today, 4:00 PM</strong>
-            </div>
           </div>
         </div>
       </div>

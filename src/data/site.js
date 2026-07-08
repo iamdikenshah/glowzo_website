@@ -18,7 +18,7 @@ export const SITE = {
 export const NAV_LINKS = [
   { label: 'Home', hash: '#home' },
   { label: 'Services', hash: '#services' },
+  { label: 'Pricing', hash: '#pricing' },
   { label: 'Testimonials', hash: '#testimonials' },
-  { label: 'Areas We Serve', hash: '#areas' },
-  { label: 'Contact', hash: '#contact' },
+  { label: 'About', hash: '#about' },
 ];

@@ -1,9 +1,10 @@
 import { useCallback } from 'react';
 import Hero from '../components/Hero';
+import Stats from '../components/Stats';
 import Services from '../components/Services';
+import Pricing from '../components/Pricing';
 import Testimonials from '../components/Testimonials';
-import Areas from '../components/Areas';
-import Contact from '../components/Contact';
+import About from '../components/About';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 export default function Home() {
@@ -19,11 +20,12 @@ export default function Home() {
 
   return (
     <>
-      <Hero onLearnMore={scrollTo('services')} />
+      <Hero onLearnMore={scrollTo('pricing')} />
+      <Stats />
       <Services />
+      <Pricing />
       <Testimonials />
-      <Areas />
-      <Contact />
+      <About />
     </>
   );
 }

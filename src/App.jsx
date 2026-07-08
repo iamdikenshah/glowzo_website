@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import EnquiryModal from './components/EnquiryModal';
 import Home from './pages/Home';
-import ServicePage from './pages/ServicePage';
 import { useEnquiryModal } from './context/EnquiryModalContext';
 
 const AUTO_OPEN_DELAY = 1400; // ms after first load
@@ -68,7 +67,6 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/service" element={<ServicePage />} />
           {/* /enquiry keeps the shareable link — it renders Home with the popup open */}
           <Route path="/enquiry" element={<Home />} />
         </Routes>
