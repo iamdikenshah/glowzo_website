@@ -146,14 +146,37 @@ function getLogoBlob() {
   return null;
 }
 
+/** Builds a wa.me link (with prefilled message) to the customer's number, or ''. */
+function waUrl(mobile) {
+  var digits = String(mobile == null ? '' : mobile).replace(/\D/g, '');
+  if (digits.length < 10) return '';
+  var ten = digits.slice(-10); // last 10 digits, in case a country code is included
+  var text = 'Hi, thanks for registering with Glowzo! Regarding your car wash booking —';
+  return 'https://wa.me/91' + ten + '?text=' + encodeURIComponent(text);
+}
+
 /** Builds a clean, mobile-friendly HTML email body. */
 function buildHtmlEmail(rows, submittedAt, mobile, hasLogo) {
+  var wa = waUrl(mobile);
+
   var tableRows = rows.map(function (r) {
+    var valueHtml = escapeHtml(r.a);
+    // Make the customer's mobile number tap-to-WhatsApp (+ tap-to-call).
+    if (/mobile/i.test(r.q)) {
+      var rowWa = waUrl(r.a);
+      var digits = String(r.a).replace(/\D/g, '');
+      if (rowWa) {
+        valueHtml = '<a href="' + rowWa + '" style="color:#0f172a;text-decoration:none;font-weight:600;">'
+          + escapeHtml(r.a) + '</a>'
+          + ' &nbsp;<a href="' + rowWa + '" style="color:#25D366;text-decoration:none;font-size:12px;font-weight:600;">WhatsApp ›</a>'
+          + ' &nbsp;<a href="tel:+91' + digits.slice(-10) + '" style="color:#0284c7;text-decoration:none;font-size:12px;font-weight:600;">Call ›</a>';
+      }
+    }
     return '<tr>'
       + '<td style="padding:10px 14px;border-bottom:1px solid #eef2f7;color:#64748b;'
       + 'font-size:13px;white-space:nowrap;vertical-align:top;">' + escapeHtml(r.q) + '</td>'
       + '<td style="padding:10px 14px;border-bottom:1px solid #eef2f7;color:#0f172a;'
-      + 'font-size:14px;font-weight:600;white-space:pre-line;">' + escapeHtml(r.a) + '</td>'
+      + 'font-size:14px;font-weight:600;white-space:pre-line;">' + valueHtml + '</td>'
       + '</tr>';
   }).join('');
 
@@ -164,11 +187,10 @@ function buildHtmlEmail(rows, submittedAt, mobile, hasLogo) {
       + '</div>'
     : '';
 
-  var waLink = mobile
-    ? '<a href="https://wa.me/91' + encodeURIComponent(String(mobile).replace(/\D/g, '').slice(-10))
-      + '" style="display:inline-block;margin-top:16px;background:#25D366;color:#fff;'
-      + 'text-decoration:none;padding:10px 18px;border-radius:9999px;font-size:14px;'
-      + 'font-weight:600;">Message on WhatsApp</a>'
+  var waLink = wa
+    ? '<a href="' + wa + '" style="display:inline-block;margin-top:16px;background:#25D366;'
+      + 'color:#fff;text-decoration:none;padding:11px 20px;border-radius:9999px;font-size:14px;'
+      + 'font-weight:600;">Message ' + escapeHtml(String(mobile)) + ' on WhatsApp</a>'
     : '';
 
   return ''
