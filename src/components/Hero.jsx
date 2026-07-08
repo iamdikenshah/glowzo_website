@@ -48,8 +48,25 @@ export default function Hero({ onLearnMore }) {
         </div>
 
         <div className="hero__visual">
+          <div className="hero__glow" aria-hidden="true" />
           <div className="hero__illustration">
             <HeroIllustration />
+          </div>
+
+          <div className="hero__chip hero__chip--rating" aria-hidden="true">
+            <span className="hero__chip-stars">★★★★★</span>
+            <div>
+              <strong>4.9 / 5</strong>
+              <span>500+ happy customers</span>
+            </div>
+          </div>
+
+          <div className="hero__chip hero__chip--eco" aria-hidden="true">
+            <span className="hero__chip-emoji">🌿</span>
+            <div>
+              <strong>Eco-friendly</strong>
+              <span>Water-smart clean</span>
+            </div>
           </div>
         </div>
       </div>
