@@ -16,14 +16,9 @@ export default function Footer() {
       <div className="container">
         <div className="footer__inner">
           <div className="footer__brand">
-            <div className="footer__logo">
-              <span className="logo-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="white" />
-                </svg>
-              </span>
-              Glow<span className="logo-accent">zo</span>
-            </div>
+            <Link to="/" className="footer__logo" aria-label="Glowzo home">
+              <img src="/logo.jpeg" alt="Glowzo" className="footer__logo-img" />
+            </Link>
             <p className="footer__tagline">
               Daily doorstep car cleaning — clean cars, happy owners.
             </p>
@@ -50,6 +45,7 @@ export default function Footer() {
               <Link to="/#home" className="footer__lnk">Home</Link>
               <Link to="/#services" className="footer__lnk">Services</Link>
               <Link to="/#pricing" className="footer__lnk">Pricing</Link>
+              <Link to="/#areas" className="footer__lnk">Service Areas</Link>
               <Link to="/#testimonials" className="footer__lnk">Testimonials</Link>
               <Link to="/#about" className="footer__lnk">About Us</Link>
               <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Register / Book</button>
@@ -69,7 +65,11 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <p>&copy; {year} {SITE.name}. All rights reserved.</p>
-          <p>Made with ♥ in Ahmedabad, Gujarat</p>
+          <nav className="footer__legal" aria-label="Legal">
+            <Link to="/terms" className="footer__lnk">Terms &amp; Conditions</Link>
+            <span aria-hidden="true">·</span>
+            <span>Made with ♥ in Ahmedabad, Gujarat</span>
+          </nav>
         </div>
       </div>
     </footer>

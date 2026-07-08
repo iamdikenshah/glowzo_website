@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Stats from '../components/Stats';
 import Services from '../components/Services';
 import Pricing from '../components/Pricing';
+import ServiceAreas from '../components/ServiceAreas';
 import Testimonials from '../components/Testimonials';
 import About from '../components/About';
 import useScrollReveal from '../hooks/useScrollReveal';
@@ -24,6 +25,7 @@ export default function Home() {
       <Stats />
       <Services />
       <Pricing />
+      <ServiceAreas />
       <Testimonials />
       <About />
     </>

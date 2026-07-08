@@ -101,7 +101,7 @@ export default function HeroIllustration({
         <path d="M470 185 L471.5 181 L473 185 L477 186.5 L473 188 L471.5 192 L470 188 L466 186.5Z" opacity=".7" />
       </g>
 
-      <text x="260" y="348" textAnchor="middle" fill="#0284C7" opacity=".18" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="700" letterSpacing="4">
+      <text x="260" y="348" textAnchor="middle" fill="#0284C7" opacity=".18" fontSize="9" fontFamily="'Open Sans', sans-serif" fontWeight="700" letterSpacing="4">
         GLOWZO
       </text>
     </svg>

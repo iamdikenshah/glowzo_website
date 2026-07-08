@@ -19,6 +19,7 @@ export const NAV_LINKS = [
   { label: 'Home', hash: '#home' },
   { label: 'Services', hash: '#services' },
   { label: 'Pricing', hash: '#pricing' },
+  { label: 'Areas', hash: '#areas' },
   { label: 'Testimonials', hash: '#testimonials' },
   { label: 'About', hash: '#about' },
 ];

@@ -15,37 +15,41 @@ export default function Pricing() {
           </p>
         </header>
 
-        <div className="price-table reveal">
-          <div className="price-table__head" aria-hidden="true">
-            <span>Vehicle Type</span>
-            <span>Monthly Price</span>
-          </div>
-
-          {PRICING_TIERS.map((t) => (
-            <div className={`price-row${t.popular ? ' price-row--popular' : ''}`} key={t.tier}>
-              <div className="price-row__type">
-                <span className="price-row__tier">
-                  {t.tier}
-                  {t.popular && <span className="price-row__badge">Popular</span>}
-                </span>
-                <span className="price-row__list">{t.types}</span>
-              </div>
-              <div className="price-row__amount">
-                <span className="price-row__price">{t.price}</span>
-                <span className="price-row__period">{t.period}</span>
-              </div>
+        <div className="plan-grid">
+          {PRICING_TIERS.map((t, i) => (
+            <div
+              className={`plan-card reveal${t.popular ? ' plan-card--popular' : ''}${i ? ` reveal-d${i}` : ''}`}
+              key={t.tier}
+            >
+              {t.popular && <span className="plan-card__badge">Most Popular</span>}
+              <p className="plan-card__tier">{t.tier}</p>
+              <p className="plan-card__price">
+                {t.price}
+                <span className="plan-card__period">{t.period}</span>
+              </p>
+              <p className="plan-card__caption">Covers</p>
+              <p className="plan-card__list">{t.types}</p>
+              <ul className="plan-card__features">
+                <li>Daily doorstep cleaning</li>
+                <li>Exterior wash &amp; glass</li>
+                <li>Tyre &amp; rim care</li>
+                <li>Cancel anytime</li>
+              </ul>
+              <button
+                type="button"
+                onClick={openEnquiry}
+                className={`btn ${t.popular ? 'btn-primary' : 'btn-outline'}`}
+                style={{ width: '100%' }}
+              >
+                Choose {t.tier}
+              </button>
             </div>
           ))}
         </div>
 
-        <div className="pricing__cta reveal reveal-d1">
-          <button type="button" onClick={openEnquiry} className="btn btn-primary btn-lg">
-            Start Your Plan
-          </button>
-          <p className="pricing__note">
-            Prices are per vehicle, per month. Includes daily doorstep cleaning · cancel anytime.
-          </p>
-        </div>
+        <p className="pricing__note reveal">
+          Prices are per vehicle, per month · includes daily doorstep cleaning · cancel anytime.
+        </p>
       </div>
     </section>
   );

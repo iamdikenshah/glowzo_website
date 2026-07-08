@@ -47,6 +47,15 @@ export const PRICING_TIERS = [
   },
 ];
 
+export const SERVICE_AREAS = [
+  { name: 'South Bopal', active: true },
+  { name: 'Bopal', active: true },
+  { name: 'Shilaj', active: true },
+  { name: 'Ambli', active: false },
+  { name: 'Ghuma', active: false },
+  { name: 'SG Highway', active: false },
+];
+
 export const TESTIMONIALS = [
   {
     initial: 'R',
