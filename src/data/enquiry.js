@@ -36,11 +36,13 @@ export const FIELDS = {
   mobile:   { entry: ENTRY.mobile,   label: 'Mobile Number',        type: 'tel',      required: true,  placeholder: '10-digit mobile number', autoComplete: 'tel', maxLength: 10 },
   society:  { entry: ENTRY.society,  label: 'Society Name',         type: 'text',     required: true,  placeholder: 'e.g. Shivalik Residency' },
   flat:     { entry: ENTRY.flat,     label: 'Flat / House Number',  type: 'text',     required: true,  placeholder: 'e.g. B-402' },
+  // No Google Form field for this yet — captured in Additional Notes (see submit).
+  serviceStartDate: { label: 'Service Start Date', type: 'date', required: true, noEntry: true },
   parking:  { entry: ENTRY.parking,  label: 'Parking Location',     type: 'radio',    required: false, options: ['Basement', 'Ground Floor', 'Open Parking', 'Other'], hasOther: true },
   notes:    { entry: ENTRY.notes,    label: 'Additional Notes',     type: 'textarea', required: false, placeholder: 'Any special requests, preferred timing, gate/parking instructions…' },
 };
 
-export const STATIC_FIELD_ORDER = ['fullName', 'mobile', 'society', 'flat', 'parking', 'notes'];
+export const STATIC_FIELD_ORDER = ['fullName', 'mobile', 'society', 'flat', 'serviceStartDate', 'parking', 'notes'];
 
 export const emptyVehicle = () => ({ type: '', reg: '', name: '' });
 
@@ -87,11 +89,15 @@ export async function submitEnquiry(values) {
   body.append(ENTRY.regNumber, vehicles.map((v) => v.reg).filter(Boolean).join(', '));
   body.append(ENTRY.carName, vehicles.map((v) => v.name).filter(Boolean).join(', '));
 
-  // Unambiguous per-vehicle breakdown + user notes → Additional Notes.
+  // Service start date + per-vehicle breakdown + user notes → Additional Notes.
   const breakdown = vehicles
     .map((v, i) => `${i + 1}) ${v.type || '—'} · ${v.reg || '—'} · ${v.name || '—'}`)
     .join('\n');
-  const notes = [breakdown && `Vehicles:\n${breakdown}`, values.notes]
+  const notes = [
+    values.serviceStartDate && `Service start date: ${values.serviceStartDate}`,
+    breakdown && `Vehicles:\n${breakdown}`,
+    values.notes,
+  ]
     .filter(Boolean)
     .join('\n\n');
   body.append(ENTRY.notes, notes);

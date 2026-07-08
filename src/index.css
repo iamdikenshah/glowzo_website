@@ -872,7 +872,7 @@ select.form-input:invalid { color: var(--color-text-light); }
   background: rgba(15,23,42,.55);
   backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
   display: flex; align-items: center; justify-content: center;
-  padding: 24px 1rem;
+  padding: 16px;
   animation: overlayFade .2s ease;
 }
 @keyframes overlayFade { from { opacity: 0; } to { opacity: 1; } }
@@ -906,7 +906,7 @@ select.form-input:invalid { color: var(--color-text-light); }
 
 .modal__head {
   flex: 0 0 auto;
-  padding: var(--sp-xl) var(--sp-xl) var(--sp-md);
+  padding: var(--sp-lg) var(--sp-lg) var(--sp-sm);
 }
 .modal__badge {
   display: inline-flex; align-items: center; gap: .4rem;
@@ -925,7 +925,19 @@ select.form-input:invalid { color: var(--color-text-light); }
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 0 var(--sp-xl) var(--sp-xl);
+  padding: 0 var(--sp-lg) var(--sp-lg);
+}
+
+/* Full-screen sheet on small phones so the form uses the whole width */
+@media (max-width: 520px) {
+  .modal-overlay { padding: 0; }
+  .modal {
+    max-width: none;
+    height: 100dvh; max-height: 100dvh;
+    border-radius: 0; border: none;
+  }
+  .modal__head { padding: var(--sp-lg) var(--sp-md) var(--sp-sm); }
+  .modal__body { padding: 0 var(--sp-md) var(--sp-lg); }
 }
 
 /* Footer links rendered as buttons */

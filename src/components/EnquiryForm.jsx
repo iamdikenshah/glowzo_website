@@ -11,8 +11,16 @@ import { SITE } from '../data/site';
 
 const MOBILE_RE = /^[6-9]\d{9}$/;
 
+// Local (not UTC) YYYY-MM-DD for today — used as the date input's min.
+function todayISO() {
+  const d = new Date();
+  const off = d.getTimezoneOffset();
+  return new Date(d.getTime() - off * 60000).toISOString().slice(0, 10);
+}
+
 const initialValues = () => ({
   fullName: '', mobile: '', society: '', flat: '',
+  serviceStartDate: '',
   vehicles: [emptyVehicle()],
   parking: '', parkingOther: '', notes: '',
 });
@@ -23,6 +31,7 @@ function validateStatic(key, values) {
   if (f.required && !val) return `${f.label} is required.`;
   if (key === 'mobile' && val && !MOBILE_RE.test(val.replace(/\s/g, ''))) return 'Enter a valid 10-digit Indian mobile number.';
   if (key === 'fullName' && val && val.length < 2) return 'Please enter your full name.';
+  if (f.type === 'date' && val && val < todayISO()) return 'Please choose today or a later date.';
   if (f.hasOther && values[key] === 'Other' && !(values[`${key}Other`] || '').trim()) return 'Please specify your parking location.';
   return '';
 }
@@ -208,6 +217,7 @@ export default function EnquiryForm({ onClose }) {
           placeholder={f.placeholder}
           autoComplete={f.autoComplete}
           maxLength={f.maxLength}
+          min={f.type === 'date' ? todayISO() : undefined}
           value={values[key]}
           onChange={(e) => setStatic(key, e.target.value)}
           onBlur={() => setErrors((er) => ({ ...er, [key]: validateStatic(key, values) }))}
@@ -225,6 +235,8 @@ export default function EnquiryForm({ onClose }) {
         {renderStatic('society')}
         {renderStatic('flat')}
       </div>
+
+      {renderStatic('serviceStartDate')}
 
       {/* ── Vehicles ── */}
       <div className="vehicle-section">
