@@ -45,6 +45,40 @@ var CONFIG = {
   LOGO_URL: 'https://glowzo.co.in/logo.jpeg',   // used only if the id is blank
 };
 
+// Order the fields appear in the email, regardless of the Google Form's
+// question order. Matched against each question title (case-insensitive,
+// substring). Anything not listed is appended in its original order.
+var EMAIL_FIELD_ORDER = [
+  'full name',
+  'mobile',
+  'society',
+  'flat',
+  'service start date',   // 5th
+  'number of vehicle',
+  'vehicle type',
+  'vehicle registration',
+  'vehicle / car name',
+  'parking',
+  'additional notes',
+];
+
+function orderRows(rows) {
+  function rank(title) {
+    var t = String(title).toLowerCase();
+    for (var i = 0; i < EMAIL_FIELD_ORDER.length; i++) {
+      if (t.indexOf(EMAIL_FIELD_ORDER[i]) !== -1) return i;
+    }
+    return EMAIL_FIELD_ORDER.length; // unknown → keep at the end
+  }
+  return rows
+    .map(function (r, i) { return { r: r, i: i }; })
+    .sort(function (a, b) {
+      var ra = rank(a.r.q), rb = rank(b.r.q);
+      return ra !== rb ? ra - rb : a.i - b.i;
+    })
+    .map(function (x) { return x.r; });
+}
+
 /**
  * Installable "On form submit" trigger handler.
  * @param {GoogleAppsScript.Events.FormsOnFormSubmit} e
@@ -79,7 +113,7 @@ function onEnquirySubmit(e) {
   if (nameForSubject) subjectBits.push('— ' + nameForSubject);
   if (mobileForSubject) subjectBits.push('(' + mobileForSubject + ')');
 
-  sendEnquiryEmail(subjectBits.join(' '), rows, submittedAt, mobileForSubject);
+  sendEnquiryEmail(subjectBits.join(' '), orderRows(rows), submittedAt, mobileForSubject);
 }
 
 /** Sends the branded email, inlining the logo when available. */
@@ -171,5 +205,5 @@ function sendTestEmail() {
     { q: 'Vehicle Type', a: 'Sedan, SUV' },
     { q: 'Additional Notes', a: 'Vehicles:\n1) Sedan · GJ01AB1234 · Hyundai Creta' },
   ];
-  sendEnquiryEmail(CONFIG.SUBJECT_PREFIX + ' — Test', rows, 'now (test)', '9876543210');
+  sendEnquiryEmail(CONFIG.SUBJECT_PREFIX + ' — Test', orderRows(rows), 'now (test)', '9876543210');
 }
