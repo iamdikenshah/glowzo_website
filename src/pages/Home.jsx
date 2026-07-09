@@ -1,11 +1,16 @@
 import { useCallback } from 'react';
 import Hero from '../components/Hero';
+import AvailabilityBand from '../components/AvailabilityBand';
 import Stats from '../components/Stats';
+import About from '../components/About';
 import Services from '../components/Services';
+import WhyChoose from '../components/WhyChoose';
+import HowItWorks from '../components/HowItWorks';
 import Pricing from '../components/Pricing';
 import ServiceAreas from '../components/ServiceAreas';
 import Testimonials from '../components/Testimonials';
-import About from '../components/About';
+import Faq from '../components/Faq';
+import CtaBand from '../components/CtaBand';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 export default function Home() {
@@ -22,12 +27,17 @@ export default function Home() {
   return (
     <>
       <Hero onLearnMore={scrollTo('pricing')} />
+      <AvailabilityBand />
       <Stats />
+      <About />
       <Services />
+      <WhyChoose />
+      <HowItWorks />
       <Pricing />
       <ServiceAreas />
       <Testimonials />
-      <About />
+      <Faq />
+      <CtaBand />
     </>
   );
 }

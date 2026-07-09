@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SITE } from '../data/site';
 import { useEnquiryModal } from '../context/EnquiryModalContext';
@@ -11,6 +12,8 @@ import {
 export default function Footer() {
   const year = new Date().getFullYear();
   const { openEnquiry } = useEnquiryModal();
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
   return (
     <footer className="footer" role="contentinfo">
       <div className="container">
@@ -60,6 +63,35 @@ export default function Footer() {
               <Link to="/#pricing" className="footer__lnk">Monthly Plans</Link>
               <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Book a Service</button>
             </nav>
+          </div>
+
+          <div className="footer__news">
+            <h3 className="footer__col-title">Newsletter</h3>
+            <p className="footer__news-text">
+              Get car care tips &amp; launch updates for new areas.
+            </p>
+            {subscribed ? (
+              <p className="footer__news-ok">✓ Subscribed — thanks!</p>
+            ) : (
+              <form
+                className="footer__news-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (email.trim()) { setSubscribed(true); setEmail(''); }
+                }}
+              >
+                <input
+                  type="email"
+                  className="footer__news-input"
+                  placeholder="Your email"
+                  aria-label="Email for newsletter"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button type="submit" className="btn btn-accent btn-sm" aria-label="Subscribe">→</button>
+              </form>
+            )}
           </div>
         </div>
 

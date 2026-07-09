@@ -20,9 +20,16 @@ src/
   App.jsx             Routes + scroll manager
   index.css           Design tokens + all component styles (light theme)
   pages/
-    Home.jsx          Hero · Stats · Services · Pricing · Testimonials · About
-  components/         Navbar, Footer, Hero, Stats, Services, Pricing,
-                      About, Testimonials, EnquiryModal, EnquiryForm, …
+    Home.jsx          Hero · Availability · Stats · About · Services ·
+                      WhyChoose · HowItWorks · Pricing · Areas ·
+                      Testimonials · FAQ · CTA band
+    Terms.jsx         /terms
+  components/         Navbar, Footer, Hero, AvailabilityBand, Stats, About,
+                      Services, WhyChoose, HowItWorks, Pricing, ServiceAreas,
+                      Testimonials, Faq, CtaBand, EnquiryModal, EnquiryForm, …
+
+Theme: RoxFix-inspired — Outfit/Poppins/Dancing Script fonts, royal-blue
+(#0052F7) + gold (#FCCB01) on warm cream, in src/index.css.
   data/
     site.js           Phone, email, address, social links (edit here)
     content.js        Testimonials, service areas, includes, pricing

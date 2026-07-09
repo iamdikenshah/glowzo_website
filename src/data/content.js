@@ -56,6 +56,49 @@ export const SERVICE_AREAS = [
   { name: 'SG Highway', active: false },
 ];
 
+export const WHY_CHOOSE = [
+  { icon: '⚡', title: 'Fast & Reliable', text: 'On-time doorstep service every single day — your car is ready before you head out.' },
+  { icon: '💰', title: 'Budget Friendly', text: 'Flat monthly pricing with no hidden charges. Premium care that fits your budget.' },
+  { icon: '📅', title: 'Always Available', text: 'We work 7 days a week so your car stays spotless around your schedule.' },
+  { icon: '✅', title: '100% Satisfaction', text: 'Not happy with a clean? We re-do it, no questions asked.' },
+  { icon: '🌿', title: 'Eco-Friendly', text: 'pH-neutral, biodegradable products and water-smart techniques.' },
+  { icon: '👨‍🔧', title: 'Trained Experts', text: 'Background-checked professionals trained to care for every vehicle type.' },
+];
+
+export const STEPS = [
+  { num: '01', title: 'Register Your Car', text: 'Share your details, vehicle and society in under a minute — online or on WhatsApp.' },
+  { num: '02', title: 'We Schedule You', text: 'Our team confirms your daily slot and assigns a cleaner to your location.' },
+  { num: '03', title: 'Daily Doorstep Clean', text: 'We arrive every day and clean your car right where it is parked.' },
+  { num: '04', title: 'Enjoy a Fresh Ride', text: 'Step out to a spotless car, every single morning. Cancel anytime.' },
+];
+
+export const FAQS = [
+  {
+    q: 'What does the daily car cleaning include?',
+    a: 'Every daily visit covers an exterior body wipe-down, glass and mirror cleaning, tyre and rim dusting, and a quick interior tidy. Deep interior foam cleaning can be added on a schedule that suits you.',
+  },
+  {
+    q: 'Do I need to be present during the cleaning?',
+    a: 'No. As long as your car is accessible at its registered parking spot, our team cleans it without you having to be there. You’ll get a fresh car whenever you head out.',
+  },
+  {
+    q: 'How is the monthly price decided?',
+    a: 'Pricing is a flat monthly amount based on your vehicle category — Standard (₹599), Premium SUV (₹799) or Luxury (₹999). No per-wash charges and no hidden fees.',
+  },
+  {
+    q: 'Which areas do you currently serve?',
+    a: 'We currently operate in South Bopal, Bopal and Shilaj, with Ambli, Ghuma and SG Highway launching soon. Register your interest and we’ll notify you as we expand.',
+  },
+  {
+    q: 'Is the cleaning safe for my car’s paint?',
+    a: 'Absolutely. We use pH-neutral, biodegradable products and microfibre cloths that are gentle on paint, rubber and trim — with water-smart techniques that minimise waste.',
+  },
+  {
+    q: 'Can I pause or cancel my subscription?',
+    a: 'Yes — you can pause or cancel anytime. Cancellation takes effect from your next billing cycle, and there are no lock-in contracts.',
+  },
+];
+
 export const TESTIMONIALS = [
   {
     initial: 'R',
