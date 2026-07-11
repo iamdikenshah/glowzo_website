@@ -37,7 +37,7 @@ export default function EnquiryModal({ open, onClose }) {
         </button>
         <div className="modal__head">
           <span className="modal__badge">
-            <span className="hero__badge-dot" aria-hidden="true" />
+            <span className="dot" aria-hidden="true" />
             Free Registration
           </span>
           <h2 id="enq-modal-title" className="modal__title">Register Your Car</h2>

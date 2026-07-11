@@ -7,7 +7,6 @@ import Services from '../components/Services';
 import WhyChoose from '../components/WhyChoose';
 import HowItWorks from '../components/HowItWorks';
 import Pricing from '../components/Pricing';
-import ServiceAreas from '../components/ServiceAreas';
 import Testimonials from '../components/Testimonials';
 import Faq from '../components/Faq';
 import CtaBand from '../components/CtaBand';
@@ -34,7 +33,6 @@ export default function Home() {
       <WhyChoose />
       <HowItWorks />
       <Pricing />
-      <ServiceAreas />
       <Testimonials />
       <Faq />
       <CtaBand />

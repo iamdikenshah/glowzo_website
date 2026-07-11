@@ -1,9 +1,10 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Icon from './Icon';
 import { NAV_LINKS } from '../data/site';
 import { useEnquiryModal } from '../context/EnquiryModalContext';
 
-const NAVBAR_H = 70;
+const NAVBAR_H = 72;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -12,7 +13,7 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const { openEnquiry } = useEnquiryModal();
-  const onHome = location.pathname === '/';
+  const onHome = location.pathname === '/' || location.pathname === '/enquiry';
 
   /* Sticky shadow + active-section highlight (home only) */
   useEffect(() => {
@@ -34,6 +35,12 @@ export default function Navbar() {
   /* Close mobile drawer on route change */
   useEffect(() => setOpen(false), [location.pathname]);
 
+  /* Lock body scroll while the mobile menu is open */
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
   const goTo = useCallback(
     (hash) => (e) => {
       e.preventDefault();
@@ -49,7 +56,6 @@ export default function Navbar() {
         scroll();
       } else {
         navigate('/');
-        // wait for Home to mount before scrolling
         setTimeout(scroll, 60);
       }
     },
@@ -57,58 +63,53 @@ export default function Navbar() {
   );
 
   return (
-    <header className={`navbar${scrolled ? ' scrolled' : ''}`} role="banner">
-      <div className="container navbar__inner">
-        <Link to="/" className="navbar__logo" aria-label="Glowzo home">
-          <img src="/logo.jpeg" alt="Glowzo" className="logo-image" />
+    <header className={`nav${scrolled ? ' scrolled' : ''}`}>
+      <div className="container nav-inner">
+        <Link to="/" className="brand" aria-label="Glowzo home">
+          <img src="/logo.jpeg" alt="" className="brand-mark" />
+          <span>Glow<b>zo</b></span>
         </Link>
 
-        <nav className="navbar__nav" aria-label="Main navigation">
-          {NAV_LINKS.map((l) => (
-            <a
-              key={l.hash}
-              href={`/${l.hash}`}
-              onClick={goTo(l.hash)}
-              className={`navbar__link${
-                onHome && activeId === l.hash.slice(1) ? ' active' : ''
-              }`}
-            >
-              {l.label}
-            </a>
-          ))}
+        <nav aria-label="Primary">
+          <ul className={`nav-links${open ? ' open' : ''}`}>
+            {NAV_LINKS.map((l) => (
+              <li key={l.hash}>
+                <a
+                  href={`/${l.hash}`}
+                  onClick={goTo(l.hash)}
+                  className={onHome && activeId === l.hash.slice(1) ? 'active' : ''}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+            <li className="mobile-cta">
+              <button
+                type="button"
+                onClick={() => { setOpen(false); openEnquiry(); }}
+                className="btn btn-primary btn-block"
+              >
+                Book Now
+              </button>
+            </li>
+          </ul>
         </nav>
 
-        <button type="button" onClick={openEnquiry} className="btn btn-primary navbar__cta" aria-label="Book a car wash">
-          Book Now
-        </button>
+        <div className="nav-cta desktop-cta">
+          <button type="button" onClick={openEnquiry} className="btn btn-primary">
+            Book Now
+          </button>
+        </div>
 
         <button
-          className={`navbar__hamburger${open ? ' open' : ''}`}
-          aria-label="Toggle navigation menu"
+          className="nav-toggle"
+          aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
-          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
-          <span />
-          <span />
-          <span />
+          <Icon name={open ? 'close' : 'menu'} />
         </button>
       </div>
-
-      <nav
-        className={`navbar__mobile${open ? ' open' : ''}`}
-        id="mobile-menu"
-        aria-label="Mobile navigation"
-      >
-        {NAV_LINKS.map((l) => (
-          <a key={l.hash} href={`/${l.hash}`} onClick={goTo(l.hash)} className="navbar__link">
-            {l.label}
-          </a>
-        ))}
-        <button type="button" onClick={() => { setOpen(false); openEnquiry(); }} className="btn btn-primary btn-sm">
-          Book Now
-        </button>
-      </nav>
     </header>
   );
 }

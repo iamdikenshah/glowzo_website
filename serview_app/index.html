@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===================== PRIMARY SEO ===================== -->
+  <title>ServView — Home Cleaning &amp; Repairs You Can Trust in Ahmedabad</title>
+  <meta name="description" content="ServView brings vetted professionals for home cleaning, handyman repairs, plumbing, electrical, painting and more across Ahmedabad. Transparent pricing, same-week scheduling, satisfaction guaranteed." />
+  <meta name="keywords" content="home services Ahmedabad, house cleaning Ahmedabad, handyman Ahmedabad, plumbing, electrical, painting, appliance installation, furniture assembly, ServView" />
+  <meta name="author" content="ServView" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://serview.com/" />
+
+  <!-- Geo / Local SEO -->
+  <meta name="geo.region" content="IN-GJ" />
+  <meta name="geo.placename" content="Ahmedabad, Gujarat, India" />
+
+  <!-- ===================== OPEN GRAPH ===================== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ServView" />
+  <meta property="og:title" content="ServView — Home Cleaning &amp; Repairs You Can Trust in Ahmedabad" />
+  <meta property="og:description" content="Vetted pros for cleaning, repairs and maintenance across Ahmedabad. Transparent pricing, same-week scheduling, satisfaction guaranteed." />
+  <meta property="og:url" content="https://serview.com/" />
+  <meta property="og:image" content="https://serview.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ServView — home cleaning and repairs in Ahmedabad" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- ===================== TWITTER CARD ===================== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ServView — Home Cleaning &amp; Repairs in Ahmedabad" />
+  <meta name="twitter:description" content="Vetted pros for cleaning, repairs and maintenance across Ahmedabad. Transparent pricing, satisfaction guaranteed." />
+  <meta name="twitter:image" content="https://serview.com/images/og-image.jpg" />
+
+  <meta name="theme-color" content="#0F5C56" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts, loaded non-render-blocking via the media="print" onload swap. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" />
+  </noscript>
+
+  <!-- ===================== STRUCTURED DATA (JSON-LD) ===================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://serview.com/#organization",
+    "name": "ServView",
+    "description": "Home-services company offering vetted, insured professionals for cleaning, repairs, plumbing, electrical, painting and general home maintenance across Ahmedabad.",
+    "url": "https://serview.com/",
+    "logo": "https://serview.com/images/logo.png",
+    "image": "https://serview.com/images/og-image.jpg",
+    "telephone": "+91-90000-00000",
+    "email": "hello@serview.com",
+    "priceRange": "₹₹",
+    "areaServed": { "@type": "City", "name": "Ahmedabad" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "500",
+      "bestRating": "5"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <!--
+    GitHub Pages SPA fallback restore (pairs with public/404.html). If we arrived
+    via the 404 redirect (path encoded as ?/...), rewrite the address bar back to
+    the real clean URL before React mounts so the router sees the intended path.
+  -->
+  <script>
+    (function (l) {
+      if (l.search[1] === "/") {
+        var decoded = l.search
+          .slice(1)
+          .split("&")
+          .map(function (s) { return s.replace(/~and~/g, "&"); })
+          .join("?");
+        window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+      }
+    })(window.location);
+  </script>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

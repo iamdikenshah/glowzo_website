@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#0F5C56"/>
+  <!-- Stylized house roof -->
+  <path d="M16 30 L32 17 L48 30" fill="none" stroke="#FAF8F4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- House body -->
+  <path d="M21 29 V45 H43 V29" fill="none" stroke="#FAF8F4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Care droplet (amber) -->
+  <path d="M32 33 c3 3.5 5 6 5 8.5 a5 5 0 0 1 -10 0 c0 -2.5 2 -5 5 -8.5 Z" fill="#F2A93B"/>
+</svg>

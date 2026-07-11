@@ -1,23 +1,29 @@
 import { STEPS } from '../data/content';
+import Icon from './Icon';
+
+const STEP_ICONS = ['calendar', 'user-check', 'droplet', 'check-circle'];
 
 export default function HowItWorks() {
   return (
-    <section className="how section" id="how" aria-labelledby="how-title">
+    <section className="section section-tint" id="how" aria-labelledby="how-title">
       <div className="container">
-        <header className="section-header reveal">
-          <span className="section-tag">Simple Process</span>
-          <h2 className="section-title" id="how-title">How It Works</h2>
-          <p className="section-subtitle">
+        <div className="section-head">
+          <span className="eyebrow">Simple process</span>
+          <h2 className="section-title" id="how-title">How it works</h2>
+          <p className="section-sub">
             From sign-up to a spotless car in four easy steps — no calls, no queues.
           </p>
-        </header>
+        </div>
 
-        <div className="how__grid">
+        <div className="steps">
           {STEPS.map((s, i) => (
-            <div className={`how-step reveal${i ? ` reveal-d${i}` : ''}`} key={s.num}>
-              <span className="how-step__num">{s.num}</span>
-              <h3 className="how-step__title">{s.title}</h3>
-              <p className="how-step__text">{s.text}</p>
+            <div className={`step reveal${i ? ` reveal-d${i}` : ''}`} key={s.num}>
+              <div className="step-num">
+                <Icon name={STEP_ICONS[i] || 'check'} />
+                <span className="step-index">{i + 1}</span>
+              </div>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
             </div>
           ))}
         </div>

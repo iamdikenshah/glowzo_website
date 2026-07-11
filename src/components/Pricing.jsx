@@ -5,15 +5,15 @@ export default function Pricing() {
   const { openEnquiry } = useEnquiryModal();
 
   return (
-    <section className="pricing section" id="pricing" aria-labelledby="pricing-title">
+    <section className="section" id="pricing" aria-labelledby="pricing-title">
       <div className="container">
-        <header className="section-header reveal">
-          <span className="section-tag">Monthly Plans</span>
-          <h2 className="section-title" id="pricing-title">Simple, Transparent Pricing</h2>
-          <p className="section-subtitle">
+        <div className="section-head">
+          <span className="eyebrow">Monthly plans</span>
+          <h2 className="section-title" id="pricing-title">Simple, transparent pricing</h2>
+          <p className="section-sub">
             One flat monthly price based on your vehicle — daily cleaning included, no hidden charges.
           </p>
-        </header>
+        </div>
 
         <div className="plan-grid">
           {PRICING_TIERS.map((t, i) => (
@@ -24,8 +24,7 @@ export default function Pricing() {
               {t.popular && <span className="plan-card__badge">Most Popular</span>}
               <p className="plan-card__tier">{t.tier}</p>
               <p className="plan-card__price">
-                {t.price}
-                <span className="plan-card__period">{t.period}</span>
+                {t.price}<span className="plan-card__period"> {t.period}</span>
               </p>
               <p className="plan-card__caption">Covers</p>
               <p className="plan-card__list">{t.types}</p>
@@ -38,8 +37,7 @@ export default function Pricing() {
               <button
                 type="button"
                 onClick={openEnquiry}
-                className={`btn ${t.popular ? 'btn-primary' : 'btn-outline'}`}
-                style={{ width: '100%' }}
+                className={`btn btn-block ${t.popular ? 'btn-primary' : 'btn-ghost'}`}
               >
                 Choose {t.tier}
               </button>
@@ -47,7 +45,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <p className="pricing__note reveal">
+        <p className="pricing-note reveal">
           Prices are per vehicle, per month · includes daily doorstep cleaning · cancel anytime.
         </p>
       </div>

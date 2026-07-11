@@ -1,0 +1,29 @@
+rules_version = '2';
+
+// =============================================================================
+// STORAGE SECURITY RULES — ServView
+// =============================================================================
+// Service images live under /services/**. They're publicly readable (shown on
+// the site) but writable only by the admin (custom claim admin == true). Uploads
+// are capped at 5 MB and must be an image content-type.
+// =============================================================================
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+
+    match /services/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin()
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

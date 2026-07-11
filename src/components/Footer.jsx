@@ -2,79 +2,72 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SITE } from '../data/site';
 import { useEnquiryModal } from '../context/EnquiryModalContext';
-import {
-  InstagramIcon,
-  FacebookIcon,
-  TwitterIcon,
-  YouTubeIcon,
-} from './icons';
+import Icon from './Icon';
 
 export default function Footer() {
   const year = new Date().getFullYear();
   const { openEnquiry } = useEnquiryModal();
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+
   return (
-    <footer className="footer" role="contentinfo">
+    <footer className="footer">
       <div className="container">
-        <div className="footer__inner">
-          <div className="footer__brand">
-            <Link to="/" className="footer__logo" aria-label="Glowzo home">
-              <img src="/logo.jpeg" alt="Glowzo" className="footer__logo-img" />
+        <div className="footer-grid">
+          <div className="footer-col">
+            <Link to="/" className="brand">
+              <img src="/logo.jpeg" alt="" className="brand-mark" />
+              <span>Glow<b>zo</b></span>
             </Link>
-            <p className="footer__tagline">
-              Daily doorstep car cleaning — clean cars, happy owners.
+            <p className="footer-blurb">
+              Daily doorstep car cleaning in Bopal, Ahmedabad — clean cars, happy owners.
             </p>
-
-            <nav className="footer__social" aria-label="Social media links">
-              <a href={SITE.social.instagram} className="footer__soc-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
-                <InstagramIcon />
+            <div className="footer-social">
+              <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Icon name="instagram" />
               </a>
-              <a href={SITE.social.facebook} className="footer__soc-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
-                <FacebookIcon />
+              <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <Icon name="facebook" />
               </a>
-              <a href={SITE.social.twitter} className="footer__soc-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X (Twitter)">
-                <TwitterIcon />
+              <a href={SITE.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                <Icon name="twitter" />
               </a>
-              <a href={SITE.social.youtube} className="footer__soc-link" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to our YouTube channel">
-                <YouTubeIcon />
+              <a href={SITE.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <Icon name="youtube" />
               </a>
-            </nav>
+            </div>
           </div>
 
-          <div>
-            <h3 className="footer__col-title">Quick Links</h3>
-            <nav className="footer__links" aria-label="Footer navigation">
-              <Link to="/#home" className="footer__lnk">Home</Link>
-              <Link to="/#services" className="footer__lnk">Services</Link>
-              <Link to="/#pricing" className="footer__lnk">Pricing</Link>
-              <Link to="/#areas" className="footer__lnk">Service Areas</Link>
-              <Link to="/#testimonials" className="footer__lnk">Testimonials</Link>
-              <Link to="/#about" className="footer__lnk">About Us</Link>
-              <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Register / Book</button>
-            </nav>
+          <div className="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><Link to="/#home">Home</Link></li>
+              <li><Link to="/#about">About Us</Link></li>
+              <li><Link to="/#services">Services</Link></li>
+              <li><Link to="/#pricing">Pricing</Link></li>
+              <li><Link to="/#areas">Service Areas</Link></li>
+              <li><Link to="/#testimonials">Testimonials</Link></li>
+            </ul>
           </div>
 
-          <div>
-            <h3 className="footer__col-title">Services</h3>
-            <nav className="footer__links" aria-label="Services links">
-              <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Daily Car Cleaning</button>
-              <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Interior Foam Cleaning</button>
-              <Link to="/#pricing" className="footer__lnk">Monthly Plans</Link>
-              <button type="button" onClick={openEnquiry} className="footer__lnk footer__lnk--btn">Book a Service</button>
-            </nav>
+          <div className="footer-col">
+            <h4>Get in Touch</h4>
+            <ul className="footer-contact">
+              <li><Icon name="phone" size={18} /><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></li>
+              <li><Icon name="mail" size={18} /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+              <li><Icon name="map-pin" size={18} /><span>{SITE.address}</span></li>
+              <li><Icon name="clock" size={18} /><span>{SITE.hours}</span></li>
+            </ul>
           </div>
 
-          <div className="footer__news">
-            <h3 className="footer__col-title">Newsletter</h3>
-            <p className="footer__news-text">
-              Get car care tips &amp; launch updates for new areas.
-            </p>
+          <div className="footer-col footer-news">
+            <h4>Newsletter</h4>
+            <p>Get car-care tips &amp; launch updates for new areas.</p>
             {subscribed ? (
-              <p className="footer__news-ok">✓ Subscribed — thanks!</p>
+              <p className="footer-news-ok">✓ Subscribed — thanks!</p>
             ) : (
               <form
-                className="footer__news-form"
+                className="footer-news-form"
                 onSubmit={(e) => {
                   e.preventDefault();
                   if (email.trim()) { setSubscribed(true); setEmail(''); }
@@ -82,7 +75,7 @@ export default function Footer() {
               >
                 <input
                   type="email"
-                  className="footer__news-input"
+                  className="footer-news-input"
                   placeholder="Your email"
                   aria-label="Email for newsletter"
                   value={email}
@@ -92,13 +85,16 @@ export default function Footer() {
                 <button type="submit" className="btn btn-accent btn-sm" aria-label="Subscribe">→</button>
               </form>
             )}
+            <button type="button" onClick={openEnquiry} className="btn btn-primary btn-sm" style={{ marginTop: '1rem' }}>
+              Register / Book
+            </button>
           </div>
         </div>
 
-        <div className="footer__bottom">
-          <p>&copy; {year} {SITE.name}. All rights reserved.</p>
-          <nav className="footer__legal" aria-label="Legal">
-            <Link to="/terms" className="footer__lnk">Terms &amp; Conditions</Link>
+        <div className="footer-bottom">
+          <span>© {year} {SITE.name}. All rights reserved.</span>
+          <nav>
+            <Link to="/terms">Terms &amp; Conditions</Link>
             <span aria-hidden="true">·</span>
             <span>Made with ♥ in Ahmedabad, Gujarat</span>
           </nav>

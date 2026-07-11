@@ -1,24 +1,24 @@
 import { SITE } from '../data/site';
 
 const ITEMS = [
-  { icon: '📅', text: '7 Days a Week' },
-  { icon: '🚗', text: 'Doorstep Service' },
-  { icon: '🌿', text: 'Eco-Friendly Clean' },
-  { icon: '⭐', text: '4.9 Rated by 500+' },
+  { em: '📅', text: '7 Days a Week' },
+  { em: '🚗', text: 'Doorstep Service' },
+  { em: '🌿', text: 'Eco-Friendly Clean' },
+  { em: '⭐', text: '4.9 Rated by 500+' },
 ];
 
 export default function AvailabilityBand() {
   return (
-    <section className="availability" aria-label="Availability highlights">
-      <div className="container availability__inner">
-        <ul className="availability__items">
+    <section className="trustbar" aria-label="Availability highlights">
+      <div className="container trustbar-inner">
+        <div className="trustbar-items">
           {ITEMS.map((i) => (
-            <li key={i.text}>
-              <span aria-hidden="true">{i.icon}</span> {i.text}
-            </li>
+            <span className="trustbar-item" key={i.text}>
+              <span className="em" aria-hidden="true">{i.em}</span> {i.text}
+            </span>
           ))}
-        </ul>
-        <a href={SITE.whatsapp} className="availability__cta" target="_blank" rel="noopener noreferrer">
+        </div>
+        <a href={SITE.whatsapp} className="trustbar-cta" target="_blank" rel="noopener noreferrer">
           Chat with us →
         </a>
       </div>

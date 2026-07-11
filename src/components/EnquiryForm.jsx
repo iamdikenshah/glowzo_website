@@ -318,7 +318,7 @@ export default function EnquiryForm({ onClose }) {
         </div>
       )}
 
-      <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }} disabled={status === 'sending'}>
+      <button type="submit" className="btn btn-blue btn-lg" style={{ width: '100%' }} disabled={status === 'sending'}>
         {status === 'sending' ? 'Submitting…' : 'Register My Car'}
       </button>
 

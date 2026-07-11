@@ -1,21 +1,32 @@
 import { useState } from 'react';
 import { FAQS } from '../data/content';
+import { SITE } from '../data/site';
+import Icon from './Icon';
 
 export default function Faq() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="faq section" id="faq" aria-labelledby="faq-title">
-      <div className="container">
-        <header className="section-header reveal">
-          <span className="section-tag">Got Questions?</span>
-          <h2 className="section-title" id="faq-title">Frequently Asked Questions</h2>
-          <p className="section-subtitle">
-            Everything you need to know about Glowzo's daily doorstep car cleaning.
-          </p>
-        </header>
+    <section className="section" id="faq" aria-labelledby="faq-title">
+      <div className="container faq-grid">
+        {/* Left: heading + contact panel */}
+        <div className="faq-aside reveal">
+          <span className="eyebrow">Got questions?</span>
+          <h2 className="section-title" id="faq-title">Frequently asked questions</h2>
+          <div className="faq-panel">
+            <b>Still need help?</b>
+            <p>
+              Can't find the answer you're looking for? Our team is a message away —
+              we usually reply within minutes.
+            </p>
+            <a href={SITE.whatsapp} className="faq-phone" target="_blank" rel="noopener noreferrer">
+              <Icon name="phone" /> {SITE.phone}
+            </a>
+          </div>
+        </div>
 
-        <div className="faq__list reveal">
+        {/* Right: accordion */}
+        <div className="faq-list reveal reveal-d1">
           {FAQS.map((f, i) => {
             const isOpen = open === i;
             return (
